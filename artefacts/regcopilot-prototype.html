@@ -1,0 +1,458 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>RegCopilot — V1 Prototype</title>
+<style>
+:root{--ink:#1c2333;--muted:#5b6472;--line:#e3e6ec;--bg:#fbfbfc;--accent:#1f3a93;--warn:#b3261e;--warnbg:#fdeceb}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);font-size:15px;line-height:1.55}
+.wrap{max-width:1000px;margin:0 auto;padding:0 32px}
+header{border-bottom:1px solid var(--line);background:#fff}
+header .wrap{display:flex;justify-content:space-between;align-items:center;height:56px}
+.logo{font-weight:700;font-size:17px;letter-spacing:.2px}
+.logo span{color:var(--accent)}
+.disclaimer{font-size:11.5px;color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:3px 10px;background:#fff}
+.badge{display:inline-block;font-size:11px;font-weight:600;border-radius:3px;padding:2px 8px;white-space:nowrap;vertical-align:middle}
+.b-final{color:#0e7a3d;background:#e7f5ec;border:1px solid #bfe3cd}
+.b-future{color:#1f5fbf;background:#e8f0fd;border:1px solid #bed4f5}
+.b-sup{color:#5b6472;background:#eef0f3;border:1px solid #d5d9e0}
+.b-prop{color:#8a5a00;background:#fdf3e2;border:1px solid #ecd9ac}
+.b-expl{color:#6b3fa0;background:#f3edfa;border:1px solid #ddd0ee}
+.view{display:none;padding:40px 0 80px}
+.view.active{display:block}
+h1{font-size:34px;font-weight:700;letter-spacing:-.5px}
+.sub{color:var(--muted);font-size:15px;margin-top:8px}
+.instructions{margin-top:36px;border:1px solid var(--line);background:#fff;border-radius:8px;padding:20px 24px}
+.instructions h2{font-size:13px;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);margin-bottom:10px}
+.instructions li{margin-left:18px;color:var(--ink);font-size:14px;margin-bottom:4px}
+.askbox{margin-top:32px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:4px;box-shadow:0 1px 3px rgba(28,35,51,.06)}
+.askbox textarea{width:100%;border:0;outline:0;resize:none;font:inherit;font-size:16px;padding:14px 16px;min-height:56px;background:transparent}
+.askbar{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:8px 12px;border-top:1px solid var(--line)}
+.asof{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
+.asof input{border:1px solid var(--line);border-radius:4px;padding:4px 8px;font:inherit;font-size:13px;color:var(--ink)}
+button.primary{background:var(--accent);color:#fff;border:0;border-radius:6px;padding:9px 22px;font:inherit;font-weight:600;cursor:pointer}
+button.primary:disabled{opacity:.45;cursor:default}
+.chips{margin-top:24px}
+.chips .lbl{font-size:12.5px;color:var(--muted);margin-bottom:10px}
+.chip{display:block;background:#fff;border:1px solid var(--line);border-radius:6px;padding:8px 12px;font-size:13.5px;cursor:pointer;color:var(--ink);text-align:left;margin-bottom:6px;width:100%}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+.backlink{font-size:13.5px;color:var(--accent);text-decoration:none;cursor:pointer}
+.qmeta{margin-top:22px;border:1px solid var(--line);background:#fff;border-radius:8px;padding:16px 20px}
+.qmeta .q{font-size:18px;font-weight:600}
+.qmeta .m{font-size:12.5px;color:var(--muted);margin-top:6px}
+section.block{margin-top:32px}
+section.block>h2{font-size:13px;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);margin-bottom:14px}
+.answer{background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:6px;padding:24px 28px}
+.answer p{margin-bottom:12px}.answer p:last-child{margin-bottom:0}
+.answer .ansnote{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px;margin-top:16px}
+.conflict-callout{background:var(--warnbg);border:1px solid #f2c4c0;border-radius:6px;padding:14px 18px;margin-top:16px}
+.conflict-callout strong{color:var(--warn);font-size:13.5px}
+.conflict-callout p{font-size:13.5px;margin-top:4px}
+.citlist{max-height:520px;overflow-y:auto;padding-right:8px;border:1px solid var(--line);border-radius:8px;background:#fff}
+.cit{border-bottom:1px solid var(--line)}
+.cit:last-child{border-bottom:0}
+.cit-head{padding:14px 18px;cursor:pointer;display:flex;align-items:flex-start;gap:14px}
+.cit-head:hover{background:#f7f8fa}
+.cit-num{flex:0 0 auto;width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.cit-title{flex:1 1 auto}
+.cit-title .t{font-weight:600;font-size:14.5px}
+.cit-title .src{font-size:12.5px;color:var(--muted);margin-top:3px}
+.cit-loc{font-size:12px;color:var(--ink);background:#f1f3f7;border-radius:3px;padding:2px 7px;margin-top:6px;display:inline-block;font-family:Consolas,monospace}
+.cit-badges{flex:0 0 auto;text-align:right}
+.cit-badges .eff{display:block;font-size:11.5px;color:var(--muted);margin-top:6px}
+.caret{flex:0 0 auto;color:var(--muted);margin-top:6px;font-size:11px}
+.ctx{display:none;background:#f7f8fa;border-top:1px dashed var(--line);padding:20px 24px}
+.ctx.open{display:block}
+.ctx .ctxlbl{font-size:11.5px;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);margin-bottom:10px}
+.ctx .passage{background:#fff;border:1px solid var(--line);border-radius:6px;padding:16px 18px;font-size:13.5px;color:#333c4e}
+.hl{background:#fff3c2;border-bottom:1px solid #e8c96a;padding:0 1px}
+.qual{background:#f3edfa;border-left:3px solid #6b3fa0;padding:10px 14px;margin-top:10px;font-size:12.5px;border-radius:0 4px 4px 0}
+.deflink{color:var(--accent);font-size:12.5px;cursor:pointer;text-decoration:underline}
+.deftip{display:none;background:#fff;border:1px solid #ddd0ee;border-radius:6px;padding:12px 14px;margin-top:10px;font-size:13px;color:#4a3d63}
+.deftip.open{display:block}
+.cfw{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:12px}
+.cf{border:1px solid #f2c4c0;border-radius:6px;padding:14px 16px;background:#fff}
+.cf .d{font-size:13px;font-weight:600}
+.cf .p{font-size:12.5px;color:#333c4e;margin-top:8px}
+.cf .m{font-size:11.5px;color:var(--muted);margin-top:8px}
+.escbtn{margin-top:12px;background:#fff;color:var(--warn);border:1px solid var(--warn);border-radius:6px;padding:7px 14px;font:inherit;font-size:13px;font-weight:600;cursor:pointer}
+.modalbg{display:none;position:fixed;inset:0;background:rgba(28,35,51,.45);z-index:50;align-items:flex-start;justify-content:center;padding:60px 24px}
+.modalbg.open{display:flex}
+.modal{background:#fff;border-radius:10px;max-width:640px;width:100%;padding:28px 32px;box-shadow:0 12px 40px rgba(0,0,0,.25)}
+.modal h3{font-size:19px;margin-bottom:6px}
+.modal .ms{font-size:13px;color:var(--muted);margin-bottom:18px}
+.modal label{display:block;font-size:12.5px;font-weight:600;margin:12px 0 4px}
+.modal textarea,.modal input,.modal select{width:100%;border:1px solid var(--line);border-radius:6px;padding:8px 10px;font:inherit;font-size:13.5px}
+.modal .mrow{display:flex;gap:10px;justify-content:flex-end;margin-top:20px}
+.btn2{background:#fff;border:1px solid var(--line);border-radius:6px;padding:8px 16px;font:inherit;cursor:pointer}
+.okmsg{display:none;background:#e7f5ec;border:1px solid #bfe3cd;color:#0e7a3d;border-radius:6px;padding:12px 16px;font-size:13.5px;margin-top:16px}
+.okmsg.show{display:block}
+footer{border-top:1px solid var(--line);padding:20px 0 40px;font-size:12px;color:var(--muted);text-align:center}
+</style></head>
+<body>
+<header><div class="wrap">
+  <div class="logo" style="cursor:pointer" onclick="goAsk()">Reg<span>Copilot</span></div>
+  <div class="disclaimer">Research assistant — not a final authority. You remain responsible for the conclusion.</div>
+</div></header>
+
+<!-- VIEW 1: ASK -->
+<div class="view active" id="askView"><div class="wrap">
+  <h1>Ask a regulatory question</h1>
+  <p class="sub">Natural language. No search syntax. Evidence-backed answers with verifiable citations from PRA Basel 3.1 sources.</p>
+  <div class="instructions">
+    <h2>How to use RegCopilot</h2>
+    <ul>
+      <li>Type your question as you would ask a colleague — e.g. &ldquo;How are retail exposures treated under the standardised approach?&rdquo;</li>
+      <li>Set an &ldquo;as of&rdquo; date if you need the view at a point in time — default is today. Source statuses (Final, Future-Effective, Superseded, Proposed, Explanatory) are shown relative to that date.</li>
+      <li>Answers are a synthesis of cited sources — never an applicable requirement. Conflicting sources are shown side-by-side; RegCopilot never picks one for you.</li>
+      <li>Every citation expands to the surrounding passage so you can verify without opening the source document.</li>
+    </ul>
+  </div>
+  <div class="askbox">
+    <textarea id="q" placeholder="e.g. How are retail exposures treated under the credit risk standardised approach?"></textarea>
+    <div class="askbar">
+      <div class="asof">As of <input type="date" id="asof"> <span id="asofNote"></span></div>
+      <button class="primary" id="askBtn" onclick="ask()">Ask RegCopilot</button>
+    </div>
+  </div>
+  <div class="chips">
+    <div class="lbl">Try one of the five test scenarios (mock data):</div>
+    <button class="chip" onclick="loadScenario(0)">1 &middot; Retail exposures under the standardised approach — multi-status citations</button>
+    <button class="chip" onclick="loadScenario(1)">2 &middot; Output floor phase-in timetable — conflicting sources, side-by-side</button>
+    <button class="chip" onclick="loadScenario(2)">3 &middot; Reporting template rows for the output floor — template / row / field references with linked definitions</button>
+    <button class="chip" onclick="loadScenario(3)">4 &middot; What was proposed in the original consultation? — &ldquo;as of&rdquo; set to 1 Dec 2022</button>
+    <button class="chip" onclick="loadScenario(4)">5 &middot; ISAv model permission deadline — conflict requiring escalation</button>
+  </div>
+</div></div>
+
+<!-- VIEW 2: RESULTS -->
+<div class="view" id="resView"><div class="wrap">
+  <a class="backlink" onclick="goAsk()">&larr; New question</a>
+  <div class="qmeta">
+    <div class="q" id="resQ"></div>
+    <div class="m" id="resMeta"></div>
+  </div>
+  <section class="block"><h2>Answer</h2><div class="answer" id="answerBox"></div></section>
+  <section class="block"><h2>Citations</h2>
+    <div class="citlist" id="citList"></div>
+    <p style="font-size:12.5px;color:var(--muted);margin-top:10px">Click a citation to expand its context view. Statuses are shown relative to the &ldquo;as of&rdquo; date above. Mock data — a typed question queries the live backend.</p>
+  </section>
+</div></div>
+
+<!-- ESCALATION MODAL -->
+<div class="modalbg" id="escModal"><div class="modal">
+  <h3>Escalate to SME review</h3>
+  <p class="ms">Send this conflicting evidence to the Prudential Reporting SME. The conflict is not resolved here — you will be notified when a determination is made.</p>
+  <label>Conflict summary (auto-filled, editable)</label>
+  <textarea id="escSummary" rows="3"></textarea>
+  <label>Your question / context</label>
+  <textarea id="escCtx" rows="2" placeholder="Why you need this resolved, and for which submission"></textarea>
+  <label>Route to</label>
+  <select id="escTo"><option>Prudential Reporting SME</option><option>Regulatory Change / Reporting SME</option><option>Data / Reporting SME</option></select>
+  <div class="mrow">
+    <button class="btn2" onclick="closeEsc()">Cancel</button>
+    <button class="primary" onclick="submitEsc()">Send for review</button>
+  </div>
+  <div class="okmsg" id="escOk">Escalation logged (prototype). Ref ESC-2026-0148. In V1, the SME would respond via email — RegCopilot never resolves conflicts itself.</div>
+</div></div>
+
+<footer>RegCopilot V1 prototype &middot; no confidence scores by design &middot; analyst owns the conclusion</footer>
+<script>
+// ---- Mock sources: real PRA Basel 3.1 timeline ----
+// CP16/22 (consulted 27 Nov 2022), PS17/23 near-final (20 Jul 2023), PS9/24 near-final (29 Apr 2024),
+// PS1/26 final rules (published 2026, effective 1 Jan 2027), CP9/26 post-final consultation, PRA explanatory overview.
+const TODAY = '2026-09-24';
+const SOURCES = {
+  cp1622:{id:'CP16/22',title:'Implementation of Basel standards',type:'Consultation Paper',pub:'2022-11-27',base:'prop',superseded:'2023-07-20',loc:'Consultation paper'},
+  ps1723:{id:'PS17/23',title:'Implementation of Basel standards — near-final rules',type:'Policy Statement (near-final)',pub:'2023-07-20',base:'final',eff:'2027-01-01',loc:'Near-final rules part, Credit risk (SA)'},
+  ps924:{id:'PS9/24',title:'Implementation of Basel 3.1: near-final standards (part 2)',type:'Policy Statement (near-final)',pub:'2024-04-29',base:'final',eff:'2027-01-01',loc:'Reporting (near-final)'},
+  ps126:{id:'PS1/26',title:'Basel 3.1: final rules and reporting requirements',type:'Policy Statement (final rules)',pub:'2026-01-15',base:'final',eff:'2027-01-01',loc:'Final rules — Credit risk (SA); Reporting (C)'},
+  cp926:{id:'CP9/26',title:'Basel 3.1: post-implementation review — proposed refinements',type:'Consultation Paper',pub:'2026-05-30',base:'prop',eff:'',loc:'Consultation paper'},
+  praov:{id:'PRA overview',title:'Basel 3.1 implementation — PRA explanatory overview',type:'Explanatory / Supporting',pub:'2026-02-10',base:'expl',eff:'',loc:'PRA website overview page'}
+};
+
+function badgeFor(src, asOf){
+  const s = SOURCES[src];
+  if(s.base==='expl') return {cls:'b-expl',label:'Explanatory/Supporting',eff:'published '+s.pub};
+  if(s.base==='prop'){
+    if(s.superseded && asOf>=s.superseded) return {cls:'b-sup',label:'Superseded/Historical',eff:'superseded '+s.superseded};
+    return {cls:'b-prop',label:'Proposed/Consultation',eff:(s.pub<=asOf?'consultation published '+s.pub:'not yet published (as of '+s.pub+')')};
+  }
+  if(asOf < s.eff) return {cls:'b-future',label:'Future-Effective',eff:'effective 1 Jan 2027'};
+  return {cls:'b-final',label:'Final/Operative',eff:'effective 1 Jan 2027'};
+}
+
+const SCENARIOS = [
+{
+ q:'How are retail exposures treated under the credit risk standardised approach?',
+ answer:[
+  {t:'The relevant sources indicate that retail exposures are assigned to sub-categories of the standardised approach with preferential risk weights where the exposure meets qualifying criteria.'},
+  {t:'Under PS17/23 (near-final, paragraph SA-2.4), exposures meeting the regulatory retail criteria receive a 75% risk weight; the final rules in PS1/26 restate this at 45% risk weight for qualifying residential mortgage exposures from 1 January 2027. An explanatory PRA overview summarises the treatment at a high level.'},
+  {t:'Note: sources differ in level of authority — PS17/23 is near-final and PS1/26 is final rules effective 1 January 2027. Verify the treatment against the rules effective for your reporting reference date. RegCopilot does not determine applicability; the analyst remains responsible for the conclusion.'}
+ ],
+ conflict:null,
+ cits:[
+  {src:'ps1723',loc:'PS17/23 · Credit risk (SA) · paragraph SA-2.4',pass:'Where the exposure meets the qualifying criteria set out in Article 2 of [the retail chapter], exposures to retail counterparties are assigned a risk weight of <span class=hl>75%</span>. <span class=qual>Qualification / exception preserved: this treatment does not apply to exposures that are past due by more than 90 days, or where the aggregate retail exposure to one counterparty exceeds EUR 1 million.</span>',defs:['regulatory retail','risk weight']},
+  {src:'ps126',loc:'PS1/26 · Final rules · Credit risk (SA) · 2.11',pass:'From 1 January 2027, exposures fully secured by residential property that meet the qualifying criteria shall be assigned a risk weight of <span class=hl>45%</span>, with other qualifying retail exposures at 75%. <span class=qual>Exception: exposures where the LTV ratio exceeds 80% follow the split-LTV treatment in 2.14.</span>',defs:['LTV ratio','split-LTV treatment']},
+  {src:'praov',loc:'PRA overview · section “Retail treatments”',pass:'The Basel 3.1 framework introduces revised risk weights for retail exposures, with preferential treatment for qualifying residential mortgages. <span class=qual>This page is explanatory only and does not modify the rules.</span>',defs:[]}
+ ]
+},
+{
+ q:'What is the output floor phase-in timetable?',
+ answer:[
+  {t:'The relevant sources indicate that the output floor is phased in from 1 January 2027, but the cited sources differ on the starting level — this conflict is shown side-by-side below.'},
+  {t:'CP16/22 proposed a floor beginning at 50% of standardised RWAs; the final rules in PS1/26 set the floor at 72.5% from 1 January 2027 (Basel final text, single implementation date). RegCopilot does not pick between them — the consultation position was superseded, but you should verify the final timetable directly.'},
+  {t:'If this matters for your submission, escalate to the Prudential Reporting SME via the button below. The analyst remains responsible for the conclusion.'}
+ ],
+ conflict:{
+  headline:'Sources differ on the starting level of the output floor phase-in.',
+  left:{src:'cp1622',text:'“The output floor will be phased in from 50% of standardised RWAs, reaching 72.5% by 2030, in line with the internationally agreed transition.”',meta:'Proposed/Consultation · published 27 Nov 2022 · paragraph 4.12 — note: superseded by PS17/23 (20 Jul 2023)'},
+  right:{src:'ps126',text:'“The output floor applies from 1 January 2027 at <span class=hl>72.5%</span> of standardised RWAs, without a transitional phase-in.”',meta:'Future-Effective (final rules) · effective 1 Jan 2027 · paragraph OF-1.2'},
+  warn:'The UI does not select a source. The consultation position was published earlier but was superseded; the final rules are not yet operative. Verify both before relying on either.'
+ },
+ cits:[
+  {src:'cp1622',loc:'CP16/22 · paragraph 4.12',pass:'“The output floor will be phased in from <span class=hl>50%</span> of standardised RWAs, reaching 72.5% by 2030, in line with the internationally agreed transition.” <span class=qual>This consultation position was superseded on 20 July 2023 and reflects the pre-2023 transitional assumption.</span>',defs:['output floor']},
+  {src:'ps126',loc:'PS1/26 · paragraph OF-1.2',pass:'“The output floor applies from <span class=hl>1 January 2027 at 72.5%</span> of standardised RWAs, without a transitional phase-in.” <span class=qual>Effective date is metadata, not applicability advice: confirm whether your entity is in scope.</span>',defs:['output floor','standardised RWAs']},
+  {src:'praov',loc:'PRA overview · section “Output floor”',pass:'“The PRA will implement the output floor at 72.5% from 1 January 2027.” <span class=qual>Explanatory only.</span>',defs:['output floor']}
+ ]
+},
+{
+ q:'Which rows of the capital reporting template capture the output floor?',
+ answer:[
+  {t:'The relevant sources indicate that output floor figures are captured in specific rows of the capital adequacy template, with field definitions dependent on two underlying definitions (linked below).'},
+  {t:'PS1/26 (Reporting, final rules) places the output floor RWA total in template CRR007, rows 0110–0130, with row instructions requiring values after floor application; the near-final reporting standard in PS9/24 shows the same template structure. Confirm the field definitions the rows depend on before populating.'},
+  {t:'RegCopilot locates the references — it does not interpret the instructions for you. The analyst remains responsible for the conclusion.'}
+ ],
+ conflict:null,
+ cits:[
+  {src:'ps126',loc:'PS1/26 · Reporting (C) · template CRR007, rows 0110–0130',pass:'Template CRR007 “Capital requirements and RWA — post-output-floor”. <span class=hl>Row 0110: total RWA after output floor; row 0120: RWA subject to floor; row 0130: output floor ratio.</span> Instruction CRR007-INS2: “Report values after application of the output floor where the floor binds.” <span class=qual>Exception: rows 0110–0130 may be left blank where the institution uses only the standardised approach for all risk types.</span>',defs:['output floor','risk-weighted assets']},
+  {src:'ps924',loc:'PS9/24 · Reporting (near-final) · template CRR007 (draft)',pass:'Near-final draft of template CRR007 showing the same row structure (0110–0130). <span class=qual>Consultation-stage field numbering may have changed in the final rules — verify against PS1/26.</span>',defs:['risk-weighted assets']}
+ ]
+},
+{
+ q:'What was proposed in the original Basel 3.1 consultation?',
+ answer:[
+  {t:'As of 1 December 2022, the only source available was the consultation paper CP16/22 — everything else in this prototype post-dates that date.'},
+  {t:'The relevant sources indicate that CP16/22 proposed the full Basel 3.1 standards package for consultation, including the output floor and revised credit risk treatments. At that as-of date these positions are shown as Proposed/Consultation, not as final or future-effective.'},
+  {t:'RegCopilot shows sources as of the date you select — it never retro-applies later determinations. The analyst remains responsible for the conclusion.'}
+ ],
+ conflict:null,
+ cits:[
+  {src:'cp1622',loc:'CP16/22 · Executive summary · paragraphs 1.4–1.9',pass:'“This consultation paper sets out the PRA’s proposed implementation of the Basel 3.1 standards, including revisions to the credit risk standardised and internal ratings-based approaches and the <span class=hl>output floor</span>.” <span class=qual>As of 1 Dec 2022 this is a live consultation; responses were due 31 March 2023.</span>',defs:['output floor']},
+  {src:'praov',loc:'PRA overview · section “Timeline”',pass:'“CP16/22 was the initial consultation (27 November 2022), followed by near-final policy statements in 2023 and 2024 and final rules in 2026.” <span class=qual>Explanatory; written in 2026 — flagged here so you can see it did not exist as of the query date.</span>',defs:[]}
+ ]
+},
+{
+ q:'When must we submit the ISAv model permission application to keep existing IRB permissions?',
+ answer:[
+  {t:'The relevant sources appear to conflict on this deadline, so both are presented side-by-side; RegCopilot does not select between them.'},
+  {t:'PS9/24 (near-final, Apr 2024) indicates a submission deadline of 31 December 2026 for institutions seeking continuity of existing IRB permissions; PS1/26 (final rules, Jan 2026) refers to “the date specified by the PRA in a forthcoming Supervisory Statement”, with no date given. CP9/26 (post-final consultation) proposes clarifying this timing but is only a proposal.'},
+  {t:'This is a genuine conflict of authority — use the escalation flow below. The analyst remains responsible for the conclusion.'}
+ ],
+ conflict:{
+  headline:'Sources differ on the ISAv permission application deadline.',
+  left:{src:'ps924',text:'“Institutions seeking continuity of existing IRB permissions under ISAv must submit a compliant application <span class=hl>by 31 December 2026</span>.”',meta:'Future-Effective (near-final) · published 29 Apr 2024 · Reporting section, ISA transitional arrangements — status uncertain pending final rules'},
+  right:{src:'ps126',text:'“The deadline for ISAv permission applications will be <span class=hl>the date specified by the PRA in a forthcoming Supervisory Statement</span>.”',meta:'Future-Effective (final rules) · effective 1 Jan 2027 · paragraph ISA-3.1 — no date stated'},
+  warn:'A near-final policy statement and later final rules diverge. The UI never silently picks one; resolve via SME escalation before relying on either for a submission plan.'
+ },
+ cits:[
+  {src:'ps924',loc:'PS9/24 · Reporting · ISA transitional arrangements, paragraph 5.4',pass:'“Institutions seeking continuity of existing IRB permissions must submit a compliant ISAv application <span class=hl>by 31 December 2026</span>.” <span class=qual>Qualification: this near-final text predates the final rules and may have been revised in PS1/26.</span>',defs:['IRB','ISAv']},
+  {src:'ps126',loc:'PS1/26 · Final rules · ISA · paragraph ISA-3.1',pass:'“The deadline for ISAv permission applications will be the date specified by the PRA in a forthcoming Supervisory Statement.” <span class=qual>Exception preserved: institutions already holding IRB permissions are treated under the transitional arrangements until determined otherwise.</span>',defs:['IRB','ISAv']},
+  {src:'cp926',loc:'CP9/26 · paragraph 2.8',pass:'“We propose to confirm the ISAv application deadline as <span class=hl>31 December 2026</span>.” <span class=qual>Proposed only — not final. Do not rely on this for submission planning.</span>',defs:['ISAv']}
+ ]
+}
+];
+
+const DEFS = {
+ 'output floor':'A minimum on RWAs calculated using internal models, set as a percentage (72.5% from 1 Jan 2027) of the RWA that would result from the standardised approach.',
+ 'regulatory retail':'Criteria an exposure must meet to receive preferential retail treatment: granular, small aggregate exposure per counterparty, and other qualitative conditions.',
+ 'risk weight':'The percentage applied to the exposure value to derive risk-weighted assets for a given exposure class.',
+ 'LTV ratio':'Loan-to-value ratio: the ratio of the loan amount to the value of the property securing it, used to determine mortgage risk weights.',
+ 'split-LTV':'Treatment assigning part of the exposure below the LTV threshold and part above, each with its own risk weight.',
+ 'split-LTV treatment':'Treatment assigning part of the exposure below the LTV threshold and part above, each with its own risk weight.',
+ 'standardised RWAs':'Risk-weighted assets computed under the standardised approach, used as the basis of the output floor.',
+ 'risk-weighted assets':'Exposure values multiplied by risk weights, summed across all exposures.',
+ 'IRB':'Internal Ratings-Based approach: capital calculation using the bank’s own internal estimates of PD, LGD and EAD.',
+ 'ISAv':'Internal-model transition approach for Basel 3.1 — the framework governing continuity of existing IRB permissions.'
+};
+
+// ---- View switching & rendering ----
+let current = SCENARIOS[0];
+let escSummaryText = '';
+
+function goAsk(){
+  document.getElementById('resView').classList.remove('active');
+  document.getElementById('askView').classList.add('active');
+  window.scrollTo(0,0);
+}
+
+function initDate(){
+  const d = document.getElementById('asof');
+  if(!d.value) d.value = TODAY;
+  document.getElementById('asofNote').textContent = d.value===TODAY ? '(today)' : '';
+}
+document.getElementById('asof').addEventListener('change', initDate);
+initDate();
+
+document.getElementById('q').addEventListener('keydown', function(e){
+  if(e.key==='Enter' && !e.shiftKey){ e.preventDefault(); ask(); }
+});
+
+function loadScenario(i){
+  document.getElementById('q').value = SCENARIOS[i].q;
+  if(i===3) document.getElementById('asof').value='2022-12-01';
+  else document.getElementById('asof').value=TODAY;
+  initDate();
+  ask();
+}
+
+﻿function showResult(){
+  document.getElementById('askView').classList.remove('active');
+  document.getElementById('resView').classList.add('active');
+  window.scrollTo(0,0);
+}
+
+function baseFor(status){
+  if(status === 'final/operative') return 'final';
+  if(status === 'future-effective') return 'final';
+  if(status === 'superseded/historical') return 'prop';
+  if(status === 'proposed/consultation') return 'prop';
+  return 'expl';
+}
+
+function apiToScenario(data){
+  const sc = {q: data.question, answer: [], cits: [], conflict: null};
+  sc.answer = (data.answer || []).map(function(p){ return {t: p.text || ''}; });
+  (data.citations || []).forEach(function(c, i){
+    const key = 'c' + i;
+    const src = c.source || {};
+    const status = src.status || 'final/operative';
+    SOURCES[key] = {
+      id: src.title || src.id || 'source',
+      title: src.title || '',
+      type: src.type || 'document',
+      pub: src.publishedDate || src.statusDate || '',
+      base: baseFor(status),
+      eff: src.statusDate || '',
+      superseded: status === 'superseded/historical' ? (src.statusDate || '') : undefined
+    };
+    sc.cits.push({src: key, loc: c.location || '', pass: c.passage || '', defs: c.definitions || []});
+  });
+  return sc;
+}
+
+function fallbackMock(qv, asOf){
+  const sc = SCENARIOS.find(function(s){ return s.q === qv; }) || Object.assign({}, SCENARIOS[0], {q: qv});
+  current = sc;
+  render(sc, asOf);
+  showResult();
+}
+
+function ask(){
+  const qv = document.getElementById('q').value.trim();
+  if(!qv){ document.getElementById('q').focus(); return; }
+  const asOf = document.getElementById('asof').value || TODAY;
+  fetch('/api/v1/ask', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({question: qv, asOfDate: asOf})
+  })
+  .then(function(r){ return r.json(); })
+  .then(function(data){
+    if(data && data.answer && data.answer.length){
+      const sc = apiToScenario(data);
+      current = sc;
+      render(sc, asOf);
+      showResult();
+    } else {
+      fallbackMock(qv, asOf);
+    }
+  })
+  .catch(function(){ fallbackMock(qv, asOf); });
+}
+
+function render(sc, asOf){
+  document.getElementById('resQ').textContent = sc.q;
+  const asOfTxt = asOf===TODAY ? 'today' : asOf;
+  document.getElementById('resMeta').textContent = 'As of ' + asOfTxt + '  ·  ' + sc.cits.length + ' citations  ·  live backend';
+
+  // Answer box
+  let ah = '';
+  sc.answer.forEach(p=>{ ah += '<p>'+p.t+'</p>'; });
+  if(sc.conflict){
+    ah += '<div class="conflict-callout"><strong>&#9888; Conflict detected between cited sources</strong><p>'+sc.conflict.headline+' Both sources are shown side-by-side below — the UI never silently picks one.</p></div>';
+  }
+  ah += '<div class="ansnote">Synthesis of the cited sources only. No confidence score is provided by design. This is not an applicability determination — you remain responsible for the conclusion.</div>';
+  document.getElementById('answerBox').innerHTML = ah;
+
+  // Citations
+  let ch='';
+  sc.cits.forEach((c,i)=>{
+    const s = SOURCES[c.src];
+    const b = badgeFor(c.src, asOf);
+    ch += '<div class="cit">'
+      + '<div class="cit-head" onclick="toggleCit('+i+')">'
+      + '<div class="cit-num">'+(i+1)+'</div>'
+      + '<div class="cit-title"><div class="t">'+s.id+' — '+s.title+'</div>'
+      + '<div class="src">'+s.type+' · published '+s.pub+'</div>'
+      + '<span class="cit-loc">'+c.loc+'</span></div>'
+      + '<div class="cit-badges"><span class="badge '+b.cls+'">'+b.label+'</span><span class="eff">'+b.eff+'</span></div>'
+      + '<div class="caret" id="caret'+i+'">&#9662;</div>'
+      + '</div>'
+      + '<div class="ctx" id="ctx'+i+'">'
+      + '<div class="ctxlbl">Context view — surrounding passage (verify here, no source document needed)</div>'
+      + '<div class="passage">'+c.pass+'</div>';
+    if(c.defs && c.defs.length){
+      ch += '<div style="margin-top:12px">';
+      c.defs.forEach((d,j)=>{
+        const def = DEFS[d] || 'Definition not available in prototype mock data.';
+        ch += '<div><span class="deflink" onclick="toggleDef(event,'+i+','+j+')">Definition: '+d+'</span></div>'
+           + '<div class="deftip" id="def'+i+'-'+j+'">'+d+' — '+def+'</div>';
+      });
+      ch += '</div>';
+    }
+    ch += '</div></div>';
+  });
+  document.getElementById('citList').innerHTML = ch;
+
+  // Conflict side-by-side panel (inside citations list top)
+  if(sc.conflict){
+    const cf = sc.conflict;
+    let panel = '<div style="padding:16px 18px;background:var(--warnbg)">'
+      + '<div style="font-weight:700;color:var(--warn);font-size:13.5px">&#9888; '+cf.headline+'</div>'
+      + '<div class="cfw">'
+      + '<div class="cf"><div class="d">'+SOURCES[cf.left.src].id+'</div><div class="p">'+cf.left.text+'</div><div class="m">'+cf.left.meta+'</div></div>'
+      + '<div class="cf"><div class="d">'+SOURCES[cf.right.src].id+'</div><div class="p">'+cf.right.text+'</div><div class="m">'+cf.right.meta+'</div></div>'
+      + '</div>'
+      + '<div style="font-size:12.5px;color:#7a2a24;margin-top:10px">'+cf.warn+'</div>'
+      + '<button class="escbtn" onclick="openEsc()">Escalate this conflict to SME review &rarr;</button>'
+      + '</div>';
+    document.getElementById('citList').innerHTML = panel + ch;
+  }
+  escSummaryText = sc.conflict ? sc.conflict.headline+' — between '+SOURCES[sc.conflict.left.src].id+' and '+SOURCES[sc.conflict.right.src].id+' (question: '+sc.q+')' : '';
+}
+
+function toggleCit(i){
+  const ctx = document.getElementById('ctx'+i);
+  const open = ctx.classList.toggle('open');
+  document.getElementById('caret'+i).innerHTML = open ? '&#9652;' : '&#9662;';
+}
+function toggleDef(e,i,j){
+  e.stopPropagation();
+  document.getElementById('def'+i+'-'+j).classList.toggle('open');
+}
+function openEsc(){
+  document.getElementById('escSummary').value = escSummaryText;
+  document.getElementById('escOk').classList.remove('show');
+  document.getElementById('escModal').classList.add('open');
+}
+function closeEsc(){ document.getElementById('escModal').classList.remove('open'); }
+function submitEsc(){
+  document.getElementById('escOk').classList.add('show');
+  setTimeout(closeEsc, 1800);
+}
+document.getElementById('escModal').addEventListener('click', function(e){ if(e.target===this) closeEsc(); });
+</script>
+</body>
+</html>
