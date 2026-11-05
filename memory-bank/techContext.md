@@ -55,10 +55,14 @@ Ollama 0.35.1 is running on `http://localhost:11434`. Verified this session:
     quant Q4_K_M.
   - ⚠️ **512-token context limit** — chunks must be kept ≤ ~512 tokens for embedding; reinforces
     paragraph-level location chunking (DI4-3).
-- **Chat/synthesis:** `gemma4:12b` (7.6 GB) — confirmed responding via
-  `POST /api/generate` with `{"model": "gemma4:12b", "prompt": "...", "stream": false}`.
-  - Chosen over `deepseek-r1:8b` (reasoning model — slow/unpredictable for strict JSON output) and
-    `Llama-3.2-1B` (too weak for synthesis quality).
+- **Chat/synthesis:** ~~`gemma4:12b`~~ (superseded) → **`nemotron-3-nano:4b`** (2026-11-01 benchmark:
+  most accurate 12/16, grounded, ~2s TTFT vs gemma4:12b ~9s). Pass **`think=False`** when chatting
+  with it (and with gemma4:12b/granite4.2) — these are *thinking-mode* models whose `content` field
+  streams empty otherwise.
+  - Original choice `gemma4:12b` was made over `deepseek-r1:8b` (reasoning — slow/unpredictable for
+    strict JSON) and `Llama-3.2-1B` (too weak). The 2026-11 benchmark showed gemma4:12b's slowness was
+    mainly the thinking phase; even with `think=false` it remains ~4x slower than Nemotron.
+  - Eval harness: `backend/eval/bench.py`; results: `backend/eval/results/`.
 - Other available models: `deepseek-r1:8b`, `hf.co/bartowski/Llama-3.2-1B-Instruct-GGUF:latest`.
 
 ### Ollama embedding recommendation rationale

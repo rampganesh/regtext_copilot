@@ -1,0 +1,129 @@
+model,question,verdict,note
+phi3:3.8b,What is the Basel 3.1 output floor percentage?,wrong,"Stated 75%; correct value is 72.5% (buried in formula chunk)"
+phi3:3.8b,What is a 'higher risk equity exposure'?,correct,
+phi3:3.8b,Which article sets out the Financial Collateral Comprehensive Method?,correct,
+phi3:3.8b,What is the Financial Collateral Simple Method?,correct,
+phi3:3.8b,Which articles set out the Foundation Collateral Method?,correct,
+phi3:3.8b,What is an IMA transitional permission?,partial,"General permission concept but omits Article 363(1)"
+phi3:3.8b,When does the IMA transitional period begin and end?,wrong,"Got start 1 Jan 2027 but garbled end date"
+phi3:3.8b,What is the turnover threshold for an enterprise to be an SME?,correct,
+phi3:3.8b,What does loss given default (LGD) mean?,partial,"Rough concept; hedged, no precise definition"
+phi3:3.8b,What is a transactor exposure?,wrong,"Answered 45% risk weight (a symptom), not the definition"
+phi3:3.8b,What is the Standardised Approach?,wrong,"Answered with Business Indicator/ILM (operational risk), not SA"
+phi3:3.8b,What are the minimum PD floors for retail exposures?,correct,
+phi3:3.8b,What PD must be used for retail obligors in default?,correct,
+phi3:3.8b,What risk weight can apply to an institutional exposure without an ECAI credit assessment?,wrong,"Missed the 30% / Grade A / CET1>=14% / leverage>=5% rule; truncated"
+phi3:3.8b,What does ACTP mean?,correct,
+phi3:3.8b,What risk weight applies to a higher risk equity exposure?,correct,
+smollm2:1.7b,What is the Basel 3.1 output floor percentage?,wrong,"Stated 10%; correct value is 72.5%"
+smollm2:1.7b,What is a 'higher risk equity exposure'?,correct,
+smollm2:1.7b,Which article sets out the Financial Collateral Comprehensive Method?,correct,
+smollm2:1.7b,What is the Financial Collateral Simple Method?,wrong,"Cited Article 223 instead of Article 222"
+smollm2:1.7b,Which articles set out the Foundation Collateral Method?,correct,
+smollm2:1.7b,What is an IMA transitional permission?,wrong,"Hallucinated 'valid for one year'"
+smollm2:1.7b,When does the IMA transitional period begin and end?,correct,
+smollm2:1.7b,What is the turnover threshold for an enterprise to be an SME?,correct,
+smollm2:1.7b,What does loss given default (LGD) mean?,wrong,"Described recovery rate, not loss-given-default"
+smollm2:1.7b,What is a transactor exposure?,wrong,"Gave object-finance definition (ships/aircraft)"
+smollm2:1.7b,What is the Standardised Approach?,wrong,"BI/BIC/ILM conflation (operational risk)"
+smollm2:1.7b,What are the minimum PD floors for retail exposures?,wrong,"Stated 0% floors; correct is 0.1%/0.05%"
+smollm2:1.7b,What PD must be used for retail obligors in default?,correct,
+smollm2:1.7b,What risk weight can apply to an institutional exposure without an ECAI credit assessment?,wrong,"Stated 0% or 150% (hallucinated)"
+smollm2:1.7b,What does ACTP mean?,correct,
+smollm2:1.7b,What risk weight applies to a higher risk equity exposure?,correct,
+ministral-3:3b,What is the Basel 3.1 output floor percentage?,wrong,"Stated 5%; correct value is 72.5%"
+ministral-3:3b,What is a 'higher risk equity exposure'?,correct,
+ministral-3:3b,Which article sets out the Financial Collateral Comprehensive Method?,correct,
+ministral-3:3b,What is the Financial Collateral Simple Method?,correct,
+ministral-3:3b,Which articles set out the Foundation Collateral Method?,correct,
+ministral-3:3b,What is an IMA transitional permission?,correct,
+ministral-3:3b,When does the IMA transitional period begin and end?,wrong,"Hedged; failed to state the 31 Dec 2027 end date"
+ministral-3:3b,What is the turnover threshold for an enterprise to be an SME?,correct,
+ministral-3:3b,What does loss given default (LGD) mean?,partial,"Close concept (proportion unpaid after default) but not precise"
+ministral-3:3b,What is a transactor exposure?,wrong,"45% risk weight (Article 123A) instead of revolving-facilities definition"
+ministral-3:3b,What is the Standardised Approach?,wrong,"BI/BIC/ILM conflation (operational risk)"
+ministral-3:3b,What are the minimum PD floors for retail exposures?,correct,
+ministral-3:3b,What PD must be used for retail obligors in default?,correct,
+ministral-3:3b,What risk weight can apply to an institutional exposure without an ECAI credit assessment?,correct,
+ministral-3:3b,What does ACTP mean?,correct,
+ministral-3:3b,What risk weight applies to a higher risk equity exposure?,correct,
+nemotron-3-nano:4b,What is the Basel 3.1 output floor percentage?,wrong,"Dumped percentages (5% 20% 0% 45% 45%); no 72.5% answer"
+nemotron-3-nano:4b,What is a 'higher risk equity exposure'?,correct,
+nemotron-3-nano:4b,Which article sets out the Financial Collateral Comprehensive Method?,correct,
+nemotron-3-nano:4b,What is the Financial Collateral Simple Method?,correct,
+nemotron-3-nano:4b,Which articles set out the Foundation Collateral Method?,correct,
+nemotron-3-nano:4b,What is an IMA transitional permission?,correct,
+nemotron-3-nano:4b,When does the IMA transitional period begin and end?,correct,
+nemotron-3-nano:4b,What is the turnover threshold for an enterprise to be an SME?,correct,
+nemotron-3-nano:4b,What does loss given default (LGD) mean?,wrong,"Circular restatement (cited Article 161); no definition"
+nemotron-3-nano:4b,What is a transactor exposure?,wrong,"45% risk weight (Article 123A) instead of definition"
+nemotron-3-nano:4b,What is the Standardised Approach?,wrong,"BI/BIC/ILM conflation (operational risk)"
+nemotron-3-nano:4b,What are the minimum PD floors for retail exposures?,correct,
+nemotron-3-nano:4b,What PD must be used for retail obligors in default?,correct,
+nemotron-3-nano:4b,What risk weight can apply to an institutional exposure without an ECAI credit assessment?,correct,
+nemotron-3-nano:4b,What does ACTP mean?,correct,
+nemotron-3-nano:4b,What risk weight applies to a higher risk equity exposure?,correct,
+llama3.2:1b,What is the Basel 3.1 output floor percentage?,wrong,"Refused (honest, no hallucination) but still no answer"
+llama3.2:1b,What is a 'higher risk equity exposure'?,correct,
+llama3.2:1b,Which article sets out the Financial Collateral Comprehensive Method?,correct,
+llama3.2:1b,What is the Financial Collateral Simple Method?,wrong,"Invented central-bank collateral content; missed Article 222"
+llama3.2:1b,Which articles set out the Foundation Collateral Method?,wrong,"Hallucinated a 40+ article list (229...261)"
+llama3.2:1b,What is an IMA transitional permission?,partial,"IMA-for-market-risk concept; omits Article 363(1)"
+llama3.2:1b,When does the IMA transitional period begin and end?,correct,
+llama3.2:1b,What is the turnover threshold for an enterprise to be an SME?,partial,"Mentions GBP 44m but self-contradicted (says no threshold)"
+llama3.2:1b,What does loss given default (LGD) mean?,wrong,
+llama3.2:1b,What is a transactor exposure?,wrong,"Object-finance definition (ships/aircraft)"
+llama3.2:1b,What is the Standardised Approach?,wrong,"Trading-book/Business-Indicator confusion"
+llama3.2:1b,What are the minimum PD floors for retail exposures?,correct,
+llama3.2:1b,What PD must be used for retail obligors in default?,correct,
+llama3.2:1b,What risk weight can apply to an institutional exposure without an ECAI credit assessment?,correct,
+llama3.2:1b,What does ACTP mean?,correct,
+llama3.2:1b,What risk weight applies to a higher risk equity exposure?,correct,
+granite4.2:3b,What is the Basel 3.1 output floor percentage?,wrong,"Formula dump; refused to give 72.5%"
+granite4.2:3b,What is a 'higher risk equity exposure'?,correct,
+granite4.2:3b,Which article sets out the Financial Collateral Comprehensive Method?,correct,
+granite4.2:3b,What is the Financial Collateral Simple Method?,correct,"Answer correct but repeated/rambling"
+granite4.2:3b,Which articles set out the Foundation Collateral Method?,correct,"Answer correct but degenerated into 8x repetition"
+granite4.2:3b,What is an IMA transitional permission?,correct,"Answer correct but degenerated into repetition"
+granite4.2:3b,When does the IMA transitional period begin and end?,partial,"Start (1 Jan 2027) only; end date insufficient"
+granite4.2:3b,What is the turnover threshold for an enterprise to be an SME?,correct,
+granite4.2:3b,What does loss given default (LGD) mean?,partial,"Conveys loss-given-default concept but vague and heavily repetitive"
+granite4.2:3b,What is a transactor exposure?,wrong,"45% risk weight symptom; no definition"
+granite4.2:3b,What is the Standardised Approach?,wrong,"BI/BIC/ILM conflation (operational risk)"
+granite4.2:3b,What are the minimum PD floors for retail exposures?,correct,
+granite4.2:3b,What PD must be used for retail obligors in default?,correct,"Correct but repeated 4x (degradation)"
+granite4.2:3b,What risk weight can apply to an institutional exposure without an ECAI credit assessment?,wrong,"Truncated mid-sentence; missed 30% Grade A rule"
+granite4.2:3b,What does ACTP mean?,correct,
+granite4.2:3b,What risk weight applies to a higher risk equity exposure?,correct,
+gemma:2b,What is the Basel 3.1 output floor percentage?,wrong,"Refused to answer"
+gemma:2b,What is a 'higher risk equity exposure'?,correct,
+gemma:2b,Which article sets out the Financial Collateral Comprehensive Method?,correct,
+gemma:2b,What is the Financial Collateral Simple Method?,wrong,"Vague; missed Article 222"
+gemma:2b,Which articles set out the Foundation Collateral Method?,correct,
+gemma:2b,What is an IMA transitional permission?,correct,
+gemma:2b,When does the IMA transitional period begin and end?,wrong,"Hallucinated end date 31 Dec 2029"
+gemma:2b,What is the turnover threshold for an enterprise to be an SME?,wrong,"Refused although GBP 44m was in context"
+gemma:2b,What does loss given default (LGD) mean?,partial,"Vague/circular"
+gemma:2b,What is a transactor exposure?,wrong,"Invented 'loan from credit institution to borrower'"
+gemma:2b,What is the Standardised Approach?,wrong,"BI/BIC/ILM conflation (operational risk)"
+gemma:2b,What are the minimum PD floors for retail exposures?,wrong,"Refused although floors were in context"
+gemma:2b,What PD must be used for retail obligors in default?,correct,
+gemma:2b,What risk weight can apply to an institutional exposure without an ECAI credit assessment?,wrong,"Answered the opposite scenario (ECAI available)"
+gemma:2b,What does ACTP mean?,correct,
+gemma:2b,What risk weight applies to a higher risk equity exposure?,correct,
+gemma4:12b,What is the Basel 3.1 output floor percentage?,wrong,"Cited 5%/20%/45% sources; no 72.5%"
+gemma4:12b,What is a 'higher risk equity exposure'?,correct,
+gemma4:12b,Which article sets out the Financial Collateral Comprehensive Method?,correct,
+gemma4:12b,What is the Financial Collateral Simple Method?,correct,
+gemma4:12b,Which articles set out the Foundation Collateral Method?,correct,
+gemma4:12b,What is an IMA transitional permission?,correct,
+gemma4:12b,When does the IMA transitional period begin and end?,wrong,"Refused; did not state 31 Dec 2027"
+gemma4:12b,What is the turnover threshold for an enterprise to be an SME?,correct,
+gemma4:12b,What does loss given default (LGD) mean?,partial,"Discusses LGD role and (1-LGD) recovery; no precise definition"
+gemma4:12b,What is a transactor exposure?,wrong,"Refused"
+gemma4:12b,What is the Standardised Approach?,wrong,"BI/BIC/ILM conflation (operational risk)"
+gemma4:12b,What are the minimum PD floors for retail exposures?,correct,
+gemma4:12b,What PD must be used for retail obligors in default?,correct,
+gemma4:12b,What risk weight can apply to an institutional exposure without an ECAI credit assessment?,correct,
+gemma4:12b,What does ACTP mean?,correct,
+gemma4:12b,What risk weight applies to a higher risk equity exposure?,correct,

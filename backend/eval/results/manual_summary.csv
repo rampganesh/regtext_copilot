@@ -1,0 +1,9 @@
+model,correct,partial,wrong,accuracy_weighted_pct,first_ttft_ms,warm_ttft_mean_ms,warm_total_mean_ms,notes
+phi3:3.8b,9,2,5,62.5,6636,5266,18179,"Solid core rules; slow TTFT for its size; missed output floor 72.5%"
+smollm2:1.7b,8,0,8,50.0,1358,1254,2930,"Fast but most hallucination (fabricated definitions/percentages)"
+ministral-3:3b,11,1,4,71.9,5532,2711,9161,"Strong accuracy incl. Article refs & 30% grade-A rule; verbose"
+nemotron-3-nano:4b,12,0,4,75.0,2881,2020,2525,"Best accuracy and grounded; concise; occasional circular/non-answers"
+llama3.2:1b,8,2,6,56.3,2245,541,977,"Fastest by far; honest refusals; but largest hallucination bursts (fabricated lists)"
+granite4.2:3b,10,2,4,68.8,3286,2032,8245,"Decent accuracy but repetition loops / truncation degradation"
+gemma:2b,7,1,8,46.9,2624,914,1211,"Weakest; 3 refusals where the answer was present; fabricated end-date"
+gemma4:12b,11,1,4,71.9,10115,8750,28966,"Current baseline; accurate but slowest TTFT (~4x Nemotron)"

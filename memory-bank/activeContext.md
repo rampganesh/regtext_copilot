@@ -1,19 +1,21 @@
 # Active Context — RegCopilot V1
 
-## Current work focus (as of 2026-10-05)
-**Building the initial prototype + barebones project structure.** User instructions in this session:
-> "Build the initial prototype (should do a simple search and answer) and the barebones structure of
-> the project to build on. You can use a PostgreSQL database to store the embeddings as per the
-> design. For the embedding, can use a local model served on Ollama. Give me a recommendation."
+## Current work focus (as of 2026-11-01)
+**Model benchmark complete — chat-model selection decided.** The functional prototype backend is
+built (see progress.md). This week the chat model for synthesis was evaluated empirically:
+8 local Ollama models × 16 factual PS1/26 questions, fixed top-k=12 retrieval, `think=false`,
+evidence-led prompt, temperature 0.
 
-Deliverable shape agreed from context:
-- A working **simple search-and-answer** endpoint (`POST /api/v1/ask`) — a minimal VF0-lite + VF1
-  slice: ingest a PDF → chunk → embed → store in Postgres/pgvector → retrieve → synthesize an
-  evidence-led answer with citations.
-- Frozen prototype UI wired to the real API behind a demo flag (`ask()` → `fetch('/api/v1/ask')`).
-- **Barebones but correct structure** laid out per task F1: `backend/` with
-  `api/ ingest/ retrieval/ status/ synthesis/ conflict/ verify/ db/`.
-- **Local embeddings via Ollama** recommended (see techContext.md recommendation).
+- Full details: `backend/eval/` (bench.py harness, eval_set.json, results/).
+- Manual per-question judgements: `backend/eval/results/manual_scores.csv`;
+  summary: `backend/eval/results/manual_summary.csv`.
+- Outcome: **nemotron-3-nano:4b is the recommended synthesis model** — highest accuracy (12/16),
+  stays grounded, ~4x faster TTFT (~2s) than the gemma4:12b baseline (~9s). Runner-up
+  `ministral-3:3b` (11/16, ~2.7s).
+- **gemma4:12b scored 11/16 but is 4x slower than Nemotron → no longer recommended for synthesis.**
+- Open retrieval gap to fix: **no model could answer the output-floor question** (x=72.5% lives in a
+  dense formula chunk that retrieval surfaces but models misread). Chunking/query handling for
+  formula-heavy sections needs work.
 
 ## Embedding recommendation (delivered)
 **Use `bge-base-en-v1.5` served by Ollama** (already installed:
@@ -64,3 +66,13 @@ Deliverable shape agreed from context:
 ## Decisions log
 - 2026-10-05: Initial memory bank created. Embedding stack recommended and verified
   (bge-base-en-v1.5 768d + gemma4:12b via Ollama). Environment divergences from design recorded.
+- 2026-11-01: **Chat-model benchmark executed** (8 Ollama models × 16 PS1/26 factual questions,
+  fixed top-k retrieval, judge-agnostic manual scoring). **Selected `nemotron-3-nano:4b`** as the
+  synthesis model (best accuracy 12/16, ~2s TTFT). gemma4:12b (11/16, ~9s TTFT) superseded.
+  Discovered that gemma4:12b/granite4.2/nemotron default to **thinking mode** (`think=false` needed
+  via Ollama chat); without it they return `thinking` text with empty `content` and appear slow/
+  unresponsive. Known open risk: output-floor numeric extraction (retrieval chunk quality).
+- 2026-11-01: The OpenSpec change `initial-functional-prototype-with-basic-functionality` was built
+  (backend scaffold + ingest + retrieval + synthesis + verify + FastAPI + tests); 17/17 tasks
+  marked complete; one cached pytest failure to re-check. Ragas-based eval harness lives in
+  `backend/eval/` (works; Ragas LLM-judge is slow — manual judging used for the decision).

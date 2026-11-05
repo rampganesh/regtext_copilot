@@ -1,7 +1,13 @@
 ﻿import json
+import logging
+import time
+
 import httpx
 
 import config
+import logging_setup
+
+_log = logging_setup.get_logger('llm')
 
 
 class LLMError(Exception):
@@ -14,25 +20,59 @@ class OllamaProvider:
 
     def chat(self, messages, json_schema=None):
         prompt = self._build_prompt(messages)
-        payload = {'model': config.OLLAMA_CHAT_MODEL, 'prompt': prompt, 'stream': False, 'options': {'temperature': 0}}
+        payload = {'model': config.OLLAMA_CHAT_MODEL, 'prompt': prompt, 'stream': False, 'think': False, 'options': {'temperature': 0}}
         if json_schema is not None:
             payload['format'] = json_schema
+        start = time.perf_counter()
         r = httpx.post(self.host + '/api/generate', json=payload, timeout=600)
         r.raise_for_status()
-        return r.json().get('response', '')
+        duration_ms = round((time.perf_counter() - start) * 1000, 1)
+        body = r.json()
+        response = body.get('response', '')
+        logging_setup.log_event(
+            _log,
+            'llm_chat',
+            level=logging.DEBUG,
+            model=config.OLLAMA_CHAT_MODEL,
+            endpoint='/api/generate',
+            prompt_chars=len(prompt),
+            response_chars=len(response),
+            duration_ms=duration_ms,
+        )
+        if not response.strip():
+            logging_setup.log_event(
+                _log,
+                'llm_chat_empty_response',
+                level=logging.WARNING,
+                model=config.OLLAMA_CHAT_MODEL,
+                endpoint='/api/generate',
+                duration_ms=duration_ms,
+            )
+        return response
 
     def embed(self, texts):
         if isinstance(texts, str):
             texts = [texts]
         vectors = []
         batch = 100
-        for start in range(0, len(texts), batch):
+        for bi, start in enumerate(range(0, len(texts), batch)):
             chunk = texts[start:start + batch]
+            bstart = time.perf_counter()
             r = httpx.post(self.host + '/api/embed', json={'model': config.OLLAMA_EMBED_MODEL, 'input': chunk}, timeout=600)
             r.raise_for_status()
+            bd_ms = round((time.perf_counter() - bstart) * 1000, 1)
             data = r.json()
             for vec in data.get('embeddings', []):
                 vectors.append(vec)
+            logging_setup.log_event(
+                _log,
+                'embed_batch',
+                level=logging.DEBUG,
+                batch=bi,
+                n=len(chunk),
+                duration_ms=bd_ms,
+                model=config.OLLAMA_EMBED_MODEL,
+            )
         return vectors
 
     @staticmethod

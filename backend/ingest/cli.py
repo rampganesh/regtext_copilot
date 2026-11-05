@@ -5,8 +5,10 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from datetime import date
 from ingest.pipeline import ingest_pdf
+from logging_setup import setup_logging
 
 def main():
+    setup_logging()
     pdf = sys.argv[1]
     source_key = sys.argv[2] if len(sys.argv) > 2 else 'ps126'
     title = sys.argv[3] if len(sys.argv) > 3 else 'PS1/26'

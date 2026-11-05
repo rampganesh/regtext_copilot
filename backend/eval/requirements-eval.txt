@@ -1,0 +1,13 @@
+# Offline evaluation dependencies (NOT part of the production backend).
+# Ragas brings LangChain transitively; it is used here only for evaluation,
+# never wired into the production RAG pipeline (which stays libraries-only).
+ragas==0.4.3
+langchain-ollama
+datasets
+pandas
+
+# NOTE: ragas 0.4.3 imports `langchain_community.chat_models.vertexai.ChatVertexAI`,
+# which no longer exists in langchain-community 0.4.x. A placeholder shim was added at:
+#   .venv/Lib/site-packages/langchain_community/chat_models/vertexai.py
+# ChatVertexAI is only used for isinstance checks, so the shim is safe for the local
+# Ollama judge. Re-create it if the virtualenv is rebuilt.

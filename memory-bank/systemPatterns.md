@@ -104,4 +104,17 @@ time-to-answer, sources/citations used, and outcome type (answer/refusal/escalat
 No fabrication · five status labels only · evidence-led language · no confidence scores · analyst
 remains responsible for the conclusion.
 
+## Model-serving gotchas (learned the hard way, 2026-11-01)
+- **Thinking-mode Ollama models.** `gemma4:12b`, `granite4.2:3b`, `nemotron-3-nano:4b` default to a
+  chain-of-thought phase: streamed chunks carry `message.thinking` with `message.content` empty, and
+  warm TTFT balloons (gemma4:12b: ~50s). Any code reading `chunk["message"]["content"]` silently
+  collects an EMPTY answer. Always pass `think=False` in `ollama.chat(...)` for answer generation /
+  benchmarking. (bench.py `_stream_generate` does this.)
+- **Eval harness pattern.** `backend/eval/bench.py` freezes retrieval (bge embeddings, pgvector
+  top-k=12) and varies only the chat model. Ragas must use `ragas.metrics.collections.*` with
+  `llm_factory(..., provider="openai", client=AsyncOpenAI(base_url=.../v1))`; the classic
+  `ragas.evaluate` + `LangchainLLMWrapper` path hangs against Ollama. For fast decisioning, manual
+  judgement of responses vs gold references was used (`results/manual_scores.csv`).
+- **PowerShell:** no inline `$var`/pipes/mutating shell — use small Python scripts via the venv.
+
 

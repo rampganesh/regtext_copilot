@@ -10,7 +10,8 @@ answer questions with verified citations.
 - PostgreSQL 16+ with the pgvector extension
 - Ollama running on http://localhost:11434 with these models pulled:
   - hf.co/CompendiumLabs/bge-base-en-v1.5-gguf:latest (embeddings)
-  - gemma4:12b (chat)
+  - gemma4:12b (chat, optional baseline)
+  - nemotron-3-nano:4b (chat, synthesis default; invoked with thinking disabled)
 
 ## Setup
 
@@ -34,6 +35,20 @@ Then open http://localhost:8000/ for the prototype UI, or POST a question:
 
     curl -X POST http://localhost:8000/api/v1/ask -H Content-Type: application/json \
       -d '{" question\:\What is the output floor?\,\asOfDate\:\2027-01-01\}'
+
+## Logging and timing
+
+The backend emits structured (JSON) execution logs for audit and debugging with timing.
+
+- Level: `LOG_LEVEL` env (default `INFO`). Set `LOG_LEVEL=DEBUG` to see per-stage timings and
+  per-LLM-call detail.
+- File: rotating file `backend/logs/regcopilot.log` (override with `LOG_FILE`), plus stdout.
+- Startup emits a `config` record with the effective variables (models, think flag, host, db
+  host/db with credentials redacted, top_k, temperature, log level/file).
+- Each `POST /api/v1/ask` emits a `request_id`-correlated trail: `ask` (incl. variables in play),
+  `retrieve`/`retrieve_done`/`synthesize`/`verify` (timings), `empty_answer` (warning),
+  `ask_done` (outcome, citation count, total_ms). LLM calls emit `llm_chat`/`llm_embed` with
+  duration and sizes; ingest emits `ingest`/`extract_done`/`embed_batch`/`stored`/`ingest_done`.
 
 ## Test
 

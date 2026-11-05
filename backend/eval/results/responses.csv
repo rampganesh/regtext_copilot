@@ -1,0 +1,497 @@
+model,question,cold_ttft_ms,cold_total_ms,warm_ttft_ms_mean,warm_total_ms_mean,n_tokens,tokens_per_sec,opens_with_required_phrase,response
+phi3:3.8b,What is the Basel 3.1 output floor percentage?,0.0,0.0,6636.2,11859.1,66,5.57,True,"The relevant sources indicate that the Basel 3.1 output floor is 75% as specified in parts of templates OF 02.00 and OF 08.01, in accordance with the instructions in points 1.3 and 3.3 respectively of Part II Annex II."
+phi3:3.8b,What is a 'higher risk equity exposure'?,0.0,0.0,1877.0,13895.5,110,7.92,True,"The relevant sources indicate that a higher risk equity exposure is an equity exposure that is not listed on a recognised exchange and to an undertaking whose business has existed for less than five years, beginning with the establishment of the business within the undertaking itself or within a different undertaking, and where the risk profile and nature of the business did not substantially change as a result of the transfer of the business to the undertaking, or where the risk profile or nature of the business substantially changed as a result of the transfer."
+phi3:3.8b,Which article sets out the Financial Collateral Comprehensive Method?,0.0,0.0,5263.5,9228.9,25,2.71,True,The relevant sources indicate that Article 223 sets out the Financial Collateral Comprehensive Method.
+phi3:3.8b,What is the Financial Collateral Simple Method?,0.0,0.0,6561.6,18773.0,62,3.3,True,The relevant sources indicate that the Financial Collateral Simple Method is a method set out in paragraphs 2 to 7 of Credit Risk Mitigation (CRR) Part Article 222 for calculating exposure values and assigning risk weights to collateralized exposures.
+phi3:3.8b,Which articles set out the Foundation Collateral Method?,0.0,0.0,7225.5,10829.1,21,1.94,False,The Foundation Collateral Method is set out in Articles 229 to 231.
+phi3:3.8b,What is an IMA transitional permission?,0.0,0.0,5130.5,32922.1,155,4.71,True,"The relevant sources indicate that an IMA transitional permission is a permission granted by the PRA to an institution to apply certain provisions during a transitional period. These provisions include exemptions from specific reporting requirements and the application of the Market Risk: Internal Model Approach (CRR) Part with modifications. The sources also specify that the institution must meet certain standards and requirements, such as back-testing and risk measurement, and that the permission is subject to the PRA's satisfaction. The sources further indicate that the transitional permission includes specific instructions for the submission of information and the treatment of ineligible positions. The sources do not provide a definitive definition of an IMA transitional permission but outline the conditions and requirements associated with it."
+phi3:3.8b,When does the IMA transitional period begin and end?,0.0,0.0,3953.4,11258.1,51,4.53,True,"The relevant sources indicate that the IMA transitional period begins on 1 January 2027 and ends on a day after the end of that year, as specified in Rule 3.2 of the TRANSITIONALS section."
+phi3:3.8b,What is the turnover threshold for an enterprise to be an SME?,0.0,0.0,6077.7,12701.3,37,2.91,True,"The relevant sources indicate that an enterprise with an annual turnover of not more than GBP 44 million is considered a micro, small or medium enterprise (SME)."
+phi3:3.8b,What does loss given default (LGD) mean?,0.0,0.0,6938.5,31514.6,128,4.06,True,"The relevant sources indicate that loss given default (LGD) refers to the amount of loss an institution expects to incur if a borrower defaults on a loan, expressed as a percentage of the exposure at the time of the calculation. This is influenced by various factors including the type of collateral, the currency mismatch, and the maturity of the collateral. The sources also mention that LGD estimates should be appropriate for an economic downturn and that institutions may reflect unfunded credit protection in LGDs. However, the sources do not provide a specific definition of LGD."
+phi3:3.8b,What is a transactor exposure?,0.0,0.0,6327.8,11284.5,27,2.39,True,The relevant sources indicate that a transactor exposure is a regulatory retail exposure assigned a risk weight of 45%.
+phi3:3.8b,What is the Standardised Approach?,0.0,0.0,5449.2,18725.1,79,4.22,True,"The relevant sources indicate that the Standardised Approach is a method comprising three components: the interest, leases, and dividend component; the services component; and the financial component, which are to be calculated in accordance with a specific table. This approach is effective from 1 January 2027 and is detailed in the document accompanying PS1/26."
+phi3:3.8b,What are the minimum PD floors for retail exposures?,0.0,0.0,5557.8,27780.7,119,4.28,True,"The relevant sources indicate that for retail exposures, the PD values in the input of the risk weights and expected loss formulae should not be less than the following: (a) 0.1% for qualifying revolving retail exposures, as set out in Article 147(5A), that are non-transactor exposures; (b) 0.1% for retail exposures secured by residential immovable property located in the UK; and (c) 0.05% for all other retail exposures."
+phi3:3.8b,What PD must be used for retail obligors in default?,0.0,0.0,4567.1,7639.3,24,3.14,True,The relevant sources indicate that an institution shall use a PD of 100% for obligors in default.
+phi3:3.8b,What risk weight can apply to an institutional exposure without an ECAI credit assessment?,0.0,0.0,5533.7,53745.4,256,4.76,True,"The relevant sources indicate that an institutional exposure without an ECAI credit assessment may be assigned a risk weight of 100% if it is not in the local currency of the jurisdiction of incorporation of the debtor institution, or if it is a borrowing booked in a branch of the debtor institution in a foreign jurisdiction and is not in the local currency of the branch's operating jurisdiction. This is also the case if the exposure is not a self-liquidating, trade-related contingent item arising from the movement of goods with an original maturity of less than one year. However, if the exposure is to an institution for which a credit assessment by a nominated ECAI is not available, and the original maturity of the exposure was more than three months, the exposure shall be assigned a risk weight in accordance with Table 5, which ranges from 40% to 150% based on the credit quality step. Additionally, if the exposure is to an institution for which a credit assessment by a nominated ECAI is not available, and the original maturity of the exposure was three months or less, the expos"
+phi3:3.8b,What does ACTP mean?,0.0,0.0,3062.0,7587.9,38,5.01,True,The relevant sources indicate that ACTP refers to the alternative correlation trading portfolio as determined in accordance with the Market Risk: General Provisions (CRR) Part.
+phi3:3.8b,What risk weight applies to a higher risk equity exposure?,0.0,0.0,4111.8,11130.9,50,4.49,True,"The relevant sources indicate that a higher risk equity exposure shall be assigned a risk weight of 400%, unless the exposure is within the scope of paragraph 6, in which case the treatment referred to in paragraph 6 applies."
+smollm2:1.7b,What is the Basel 3.1 output floor percentage?,0.0,0.0,1358.6,1731.8,38,21.94,True,"The relevant sources indicate that the Basel 3.1 output floor percentage is 10%. This information is found in sources 1, 2, 3, and 5."
+smollm2:1.7b,What is a 'higher risk equity exposure'?,0.0,0.0,477.6,3112.8,256,82.24,True,"The relevant sources indicate that a higher risk equity exposure is an equity exposure that is:
+
+(1) not listed on a recognized exchange; and
+(2) to an undertaking ('A') whose business has existed for a period of less than five years, beginning with:
+
+(a) where the business was first established within A, the date A was first established;
+(b) where the business was first established within a different undertaking ('B') and either:
+(i) the risk profile and nature of the business did not substantially change as a result of the transfer of the business to A, the date B was first established; or
+(ii) the risk profile or nature of the business substantially changed as a result of the transfer of the business to A, the date the business was transferred to A.
+
+IMA transitional period
+
+Higher risk equity exposure shall be assigned a risk weight of 250%, unless the exposure is a higher risk equity exposure, in which case the treatment in paragraph 4 applies, or is within scope of paragraph 6, in which case the treatment referred to in paragraph 6 applies.
+
+In summary, a higher risk equity exposure is an equity exposure that is not listed on a recognized"
+smollm2:1.7b,Which article sets out the Financial Collateral Comprehensive Method?,0.0,0.0,1320.8,2649.9,110,41.51,False,"Based on the document, the Financial Collateral Comprehensive Method is set out in Article 223. Specifically, the document states:
+
+""The relevant sources indicate
+The Financial Collateral Comprehensive Method  
+means the method set out in Credit Risk Mitigation (CRR) Part Article 223 for calculating 
+an exposure value which takes into account both price volatility and the risk mitigating 
+effects of collateral held.""
+
+So the Financial Collateral Comprehensive Method is defined in Article 223 of the Basel III rules."
+smollm2:1.7b,What is the Financial Collateral Simple Method?,0.0,0.0,1645.1,3349.1,136,40.61,False,"Based on the document, the Financial Collateral Simple Method is a method for calculating exposure values and assigning risk weights to collateralised exposures. It is described as follows:
+
+""The Financial Collateral Simple Method 
+means the method set out in Credit Risk Mitigation (CRR) Part Article 223 for calculating exposure values and assigning risk weights to collateralised exposures. The Financial Collateral Simple Method is a simple method that is suitable for use by institutions that are not sophisticated users of financial instruments.""
+
+So in summary, the Financial Collateral Simple Method is a straightforward method for calculating exposure values and risk weights for collateralized exposures, suitable for less sophisticated institutions."
+smollm2:1.7b,Which articles set out the Foundation Collateral Method?,0.0,0.0,1705.5,3656.9,152,41.56,False,"Based on the document, the following articles set out the Foundation Collateral Method:
+
+1. Article 229 - Calculation of risk-weighted exposure amounts and expected loss amounts for eligible collateral under the Foundation Collateral Method.
+
+2. Article 230 - Calculation of risk-weighted exposure amounts and expected loss amounts in the case of mixed pools of collateral under the Foundation Collateral Method.
+
+3. Article 231 - Calculation of risk-weighted exposure amounts and expected loss amounts in the case of master netting agreements covering securities financing transactions under the Foundation Collateral Method.
+
+So in summary, Articles 229, 230, and 231 set out the Foundation Collateral Method."
+smollm2:1.7b,What is an IMA transitional permission?,0.0,0.0,1277.8,4121.5,256,62.11,False,"Based on the document, an IMA transitional permission is a permission granted by the PRA to an institution to use internal models for calculating own funds requirements for market risk during the IMA transitional period. The permission is valid for a period of one year beginning with the day after the end of the IMA transitional period.
+
+The document states:
+
+""During the IMA transitional period an institution with an IMA transitional permission shall:
+
+(a) submit to the PRA in template C 24.00 information on own funds requirements calculated under Market Risk: Internal Model Approach (CRR) Part 4.2 in accordance with the instructions in point 5.7 of Part II of Annex II; and
+
+(b) submit to the PRA in templates OF 18.00 to OF 23.00 of Annex I information on own funds requirements calculated under Articles 364(2), and 367(2)(b) and 371(2) of Annex 3 of Market Risk: Internal Model Approach (CRR) Part in accordance with the instructions in point 5.1 to 5.6 of Annex II.""
+
+So in summary, an I"
+smollm2:1.7b,When does the IMA transitional period begin and end?,0.0,0.0,998.4,2740.6,156,56.92,False,"Based on the sources provided, the IMA transitional period begins on 1 January 2027 and ends on 31 December 2027. Specifically, the sources state:
+
+""This document is effective from 1 January 2027 to accompany PS1/26. Please see: www.bankofengland.co.uk/prudential-regulation/publication/2026/january/implementation-of-basel-3-1-final-rules-policy-statement. Effective from 1 January 2027""
+
+So the IMA transitional period starts on 1 January 2027 and ends on 31 December 2027."
+smollm2:1.7b,What is the turnover threshold for an enterprise to be an SME?,0.0,0.0,1314.2,2410.0,90,37.34,False,"Based on the document, the turnover threshold for an enterprise to be considered an SME is:
+
+""The enterprise shall be considered to be any undertaking regularly engaged in an economic activity irrespective of its legal form, including without limitation: self-employed persons and family businesses engaged in craft or other activities, and partnerships or associations of natural persons.""
+
+So the turnover threshold is ""not more than GBP 44 million"" per year."
+smollm2:1.7b,What does loss given default (LGD) mean?,0.0,0.0,1511.1,2610.0,89,34.1,False,"Based on the document, loss given default (LGD) refers to the proportion of the face value of a debt instrument that is recovered after a default. Specifically, the document states:
+
+""LGD = the proportion of the face value of the debt instrument that is recovered after a default.""
+
+So in essence, LGD is the percentage of the face value of a debt instrument that is expected to be recovered after a default."
+smollm2:1.7b,What is a transactor exposure?,0.0,0.0,1426.8,3505.0,173,49.36,False,"Based on the document, a transactor exposure is an exposure that is the funding of the acquisition of physical assets (such as ships, aircraft, satellites, railcars, and fleets) where the repayment of the exposure is dependent on the cash-flows generated by the specific assets that have been financed and pledged or assigned to the lender.
+
+In other words, a transactor exposure is an exposure where the lender is funding the purchase of physical assets, and the repayment of the exposure is tied to the cash flows generated by those assets. The exposure is not directly related to the creditworthiness of the borrower, but rather to the cash flows generated by the assets being financed.
+
+So in summary, a transactor exposure is an exposure where the lender is funding the purchase of physical assets, and the repayment is tied to the cash flows generated by those assets."
+smollm2:1.7b,What is the Standardised Approach?,0.0,0.0,1228.9,2854.4,137,48.0,False,"Based on the document, the Standardised Approach is a method for calculating risk-weighted exposure amounts and expected loss amounts. It is described as the Business Indicator, Business Indicator Component, and Internal Loss Multiplier. The document states:
+
+""The relevant sources indicate
+The Standardised Approach comprises: 
+(1) the Business Indicator; 
+(2) the Business Indicator Component; and 
+(3) the Internal Loss Multiplier.""
+
+So in summary, the Standardised Approach is a method that combines the Business Indicator, Business Indicator Component, and Internal Loss Multiplier to calculate risk-weighted exposure amounts and expected loss amounts."
+smollm2:1.7b,What are the minimum PD floors for retail exposures?,0.0,0.0,1422.2,2721.4,102,37.48,False,"Based on the document, the minimum PD floors for retail exposures are:
+
+(a) 0% for qualifying revolving retail exposures secured by residential immovable property
+(b) 0% for retail exposures secured by residential immovable property
+(c) 0% for other retail exposures
+
+So the minimum PD floors for retail exposures are 0% for qualifying revolving retail exposures, 0% for retail exposures secured by residential immovable property, and 0% for other retail exposures."
+smollm2:1.7b,What PD must be used for retail obligors in default?,0.0,0.0,1274.5,2307.0,88,38.14,False,"Based on the document, for retail obligors in default, the institution must use a PD of 100%. Specifically, the document states:
+
+""An institution shall, for retail exposures, for diluted risk of purchased receivables, set PD equal to EL estimates for dilution risk.""
+
+So for retail exposures, the institution must use a PD of 100% for diluted risk of purchased receivables."
+smollm2:1.7b,What risk weight can apply to an institutional exposure without an ECAI credit assessment?,0.0,0.0,1403.6,3882.4,205,52.8,False,"Based on the document, there are a few scenarios where an institutional exposure can be assigned a risk weight without an ECAI credit assessment:
+
+1. Exposures to central governments or central banks for which a credit assessment by a nominated ECAI is not available. In this case, the exposure can be assigned a risk weight of 0% if the original maturity of the exposure was more than three months, the exposure is classified as Grade A and the institution has a Common Equity Tier 1 ratio which meets or exceeds 14%.
+
+2. Exposures to the European Central Bank. In this case, the exposure can be assigned a risk weight of 0%.
+
+3. Exposures to the European Central Bank. In this case, the exposure can be assigned a risk weight of 0%.
+
+So in summary, an institutional exposure can be assigned a risk weight of 0% or 150% without an ECAI credit assessment, depending on the specific circumstances."
+smollm2:1.7b,What does ACTP mean?,0.0,0.0,765.2,1284.6,50,38.92,False,"ACTP stands for Alternative Correlation Trading Portfolio. It refers to securitisation positions included in the ACTP, which are the alternative correlation trading portfolios as determined in accordance with the Market Risk: General Provisions (CRR) Part."
+smollm2:1.7b,What risk weight applies to a higher risk equity exposure?,0.0,0.0,946.3,3950.8,256,64.8,False,"Based on the sources provided, the risk weight that applies to a higher risk equity exposure is 400%. Specifically, the relevant sources are:
+
+Source 1: Page 68 of 492 - ""For the purpose of applying risk weights for equity risk in this Article, the following countries shall constitute advanced economies: Australia, Canada, Countries that are member states of the European Union and have adopted the Euro as their currency, Denmark, Hong Kong SAR, Japan, Mexico, New Zealand, Norway, Singapore, Sweden, Switzerland, The United Kingdom, and The United States.""
+
+Source 2: Page 355 of 492 - ""For the purpose of applying risk weights for equity risk in this Article, the following countries shall constitute advanced economies: Australia, Canada, Countries that are member states of the European Union and have adopted the Euro as their currency, Denmark, Hong Kong SAR, Japan, Mexico, New Zealand, Norway, Singapore, Sweden, Switzerland, The United Kingdom, and The United States.""
+
+Source 3: Page 35 of 492 - ""For the purpose of applying risk weights for equity risk in this Article, the following countries shall constitute advanced economies: Australia, Canada,"
+ministral-3:3b,What is the Basel 3.1 output floor percentage?,0.0,0.0,5532.6,7228.0,41,5.67,True,"The relevant sources indicate that the output floor percentage for Basel 3.1, as specified in the Bank of England’s implementation guidance, is **5%** (as referenced in the provided percentages from source 2)."
+ministral-3:3b,What is a 'higher risk equity exposure'?,0.0,0.0,1017.0,10980.2,176,16.03,True,"The relevant sources indicate that a **higher risk equity exposure** is defined as an equity exposure that meets the following criteria:
+
+1. It is **not listed on a recognised exchange**; and
+2. It is an exposure to an undertaking (‘A’) whose business has existed for a period of less than five years, beginning with:
+   - **(a)** where the business was first established within A, the date A was first established;
+   - **(b)** where the business was first established within a different undertaking (‘B’) and either:
+     - **(i)** the risk profile and nature of the business did not substantially change as a result of the transfer of the business to A, the date B was first established;
+     - **(ii)** the risk profile or nature of the business substantially changed as a result of the transfer of the business to A, the date the business was transferred to A."
+ministral-3:3b,Which article sets out the Financial Collateral Comprehensive Method?,0.0,0.0,2748.6,4158.5,20,4.81,True,"The relevant sources indicate
+**Article 223** sets out the **Financial Collateral Comprehensive Method**."
+ministral-3:3b,What is the Financial Collateral Simple Method?,0.0,0.0,3129.4,7162.1,54,7.54,True,The relevant sources indicate that the **Financial Collateral Simple Method** is defined as the approach outlined in **paragraphs 2 to 7 of Credit Risk Mitigation (CRR) Part Article 222** for calculating exposure values and assigning risk weights to collateralised exposures.
+ministral-3:3b,Which articles set out the Foundation Collateral Method?,0.0,0.0,3379.9,7173.0,50,6.97,True,"The relevant sources indicate that the **Foundation Collateral Method** is set out in:
+
+- **Articles 229–231** (valuing eligible collateral, calculating risk-weighted exposure amounts, and expected loss amounts for mixed pools of collateral)."
+ministral-3:3b,What is an IMA transitional permission?,0.0,0.0,2475.6,6023.0,57,9.46,True,The relevant sources indicate that an **IMA transitional permission** is defined as a permission granted to an institution by the PRA pursuant to **Article 363(1) of Part A of Annex 3 of the Market Risk: Internal Model Approach (CRR) Part**.
+ministral-3:3b,When does the IMA transitional period begin and end?,0.0,0.0,1919.6,14818.1,194,13.09,True,"The relevant sources indicate that the IMA transitional period is defined as the period during which an institution with an IMA transitional permission is subject to specific transitional rules under the Market Risk Internal Model Approach (CRR). The evidence suggests it begins **on the day after the end of the IMA transitional period** (as referenced in **source 4, paragraph 4.1(1)**) and does not explicitly state a definitive end date in the provided sources.
+
+However, the transitional period is **effective from 1 January 2027** (as noted in multiple sources, e.g., **source 1, source 2, source 5, source 10**), implying that the **beginning of the transitional period is 1 January 2027**.
+
+The evidence is insufficient to determine a precise end date for the IMA transitional period beyond the fact that it is a defined phase tied to the implementation of **PS1/26** and the associated Basel III rules."
+ministral-3:3b,What is the turnover threshold for an enterprise to be an SME?,0.0,0.0,2768.5,6518.0,58,8.9,True,"The relevant sources indicate that an enterprise is classified as a **small or medium enterprise (SME)** under the **Credit Risk: Standardised Approach** if its annual turnover does not exceed **GBP 44 million**, based on the highest consolidated accounts of the group to which it belongs."
+ministral-3:3b,What does loss given default (LGD) mean?,0.0,0.0,3148.8,7200.6,60,8.33,True,"The relevant sources indicate that **loss given default (LGD)** refers to the proportion of an exposure that remains unpaid after the obligor defaults, reflecting the expected loss an institution incurs relative to the exposure’s gross amount. It is calculated under downturn conditions to assess the severity of default outcomes."
+ministral-3:3b,What is a transactor exposure?,0.0,0.0,2864.0,6209.8,52,8.37,True,"The relevant sources indicate that a **transactor exposure** is a type of **regulatory retail exposure** that is assigned a risk weight of **45%** under the Basel framework, as specified in **Article 123A** of the CRR."
+ministral-3:3b,What is the Standardised Approach?,0.0,0.0,2472.3,18192.2,224,12.31,True,"The relevant sources indicate that the **Standardised Approach** is a regulatory framework under Basel III for calculating **risk-weighted exposure amounts** and **own funds requirements** for credit and market risk, effective from **1 January 2027**.
+
+For **credit risk**, it comprises:
+1. The **Business Indicator** (sum of three components: interest/leases/dividends, services, and financial components, calculated via a specified table).
+2. The **Internal Loss Multiplier** (applied to the Business Indicator to derive risk-weighted exposure amounts).
+
+For **market risk**, the **Advanced Standardised Approach** applies to trading and non-trading positions (e.g., foreign exchange or commodity risk), structured as:
+- Sensitivities-based method (own funds under Section 2),
+- Residual risks (only for trading book positions, Section 4),
+- Default risk (only for trading book positions, Section 5).
+
+The approach is **not mandatory** for all exposures but may be applied conditionally (e.g., where it aligns with the institution’s exposures, complexity, or PRA approval criteria)."
+ministral-3:3b,What are the minimum PD floors for retail exposures?,0.0,0.0,2843.9,14577.8,156,10.7,True,"The relevant sources indicate that for retail exposures, institutions must use **probability of default (PD) values** that are **not less than the following floors** when calculating risk-weighted exposure amounts and expected loss amounts under specific Article provisions:
+
+1. **0.1%** for:
+   - Qualifying revolving retail exposures (as defined in **Article 147(5A)**) that are **non-transactor exposures** (source 2, point (a)).
+   - Retail exposures **secured by residential immovable property located in the UK** (source 2, point (b)).
+
+2. **0.05%** for **all other retail exposures** (source 2, point (c)).
+
+No further PD floors are explicitly mandated beyond these thresholds in the provided sources."
+ministral-3:3b,What PD must be used for retail obligors in default?,0.0,0.0,2820.5,6059.7,51,8.42,True,"The relevant sources indicate that for retail obligors in default, an institution must use a **probability of default (PD) of 100%** as specified in **Article 157(2)** and **Article 178(1)**."
+ministral-3:3b,What risk weight can apply to an institutional exposure without an ECAI credit assessment?,0.0,0.0,2821.9,22468.6,243,10.82,True,"The relevant sources indicate that, for exposures to institutions without an available credit assessment from a nominated ECAI, the risk weight assigned depends on the following circumstances:
+
+1. **General Rule (100% risk weight, unless permitted otherwise):**
+   - If no ECAI credit assessment is available, the exposure is typically assigned a **100% risk weight**, unless the institution has obtained prior permission from the PRA to apply a different approach (as outlined in **source 3** and **source 8**).
+
+2. **Special Cases for Institutional Exposures (with ECAI credit assessment unavailable):**
+   - **Exposures with maturity > 3 months and Grade A classification:**
+     - If the exposure is **Grade A** (original maturity > 3 months) and meets the capital ratio thresholds (Common Equity Tier 1 ≥ 14% and leverage ratio ≥ 5%), the risk weight may be **30%** (as per **source 5**).
+   - **Exposures to Central Governments or Local Authorities (UK):**
+     - If the exposure is to a UK public sector entity (e.g., regional/local government) and no ECAI assessment is available, the risk weight is determined"
+ministral-3:3b,What does ACTP mean?,0.0,0.0,1429.0,3190.0,37,11.6,True,"The relevant sources indicate that **ACTP** means the **alternative correlation trading portfolio**, as determined in accordance with the *Market Risk: General Provisions (CRR) Part*."
+ministral-3:3b,What risk weight applies to a higher risk equity exposure?,0.0,0.0,2023.8,4636.6,46,9.92,True,"The relevant sources indicate that a higher risk equity exposure shall be assigned a risk weight of **400%** unless the exposure is within the scope of **paragraph 6**, in which case the treatment referred to in paragraph 6 applies."
+nemotron-3-nano:4b,What is the Basel 3.1 output floor percentage?,2881.0,3152.3,2881.0,3152.3,17,5.39,True,The relevant sources indicate 5% 20% 0% 45% 45%
+nemotron-3-nano:4b,What is a 'higher risk equity exposure'?,0.0,0.0,923.2,1910.4,85,44.49,True,"The relevant sources indicate that a higher risk equity exposure is an equity exposure that is not listed on a recognised exchange and is to an undertaking whose business has existed for less than five years, beginning with the date the business was first established within that undertaking or a different undertaking, and where the risk profile and nature of the business did not substantially change as a result of the transfer or has substantially changed as a result of the transfer."
+nemotron-3-nano:4b,Which article sets out the Financial Collateral Comprehensive Method?,0.0,0.0,2135.9,2350.1,17,7.23,True,The relevant sources indicate Article 223 sets out the Financial Collateral Comprehensive Method.
+nemotron-3-nano:4b,What is the Financial Collateral Simple Method?,0.0,0.0,2385.3,2990.9,48,16.05,True,The relevant sources indicate that the Financial Collateral Simple Method is the method set out in paragraphs 2 to 7 of Credit Risk Mitigation (CRR) Part Article 222 for calculating exposure values and assigning risk weights to collateralised exposures.
+nemotron-3-nano:4b,Which articles set out the Foundation Collateral Method?,0.0,0.0,2488.5,2765.4,21,7.59,True,The relevant sources indicate Article 229 to Article 231 set out the Foundation Collateral Method.
+nemotron-3-nano:4b,What is an IMA transitional permission?,0.0,0.0,1933.4,2730.4,63,23.07,True,"The relevant sources indicate that an IMA transitional permission is a permission granted by the PRA under Article 363(1) of Part A of Annex 3 of the Market Risk: Internal Model Approach (CRR) Part, effective from 1 January 2027 to accompany PS1/26."
+nemotron-3-nano:4b,When does the IMA transitional period begin and end?,0.0,0.0,1537.5,1913.7,28,14.63,True,The relevant sources indicate the IMA transitional period begins on 1 January 2027 and ends on 31 December 2027.
+nemotron-3-nano:4b,What is the turnover threshold for an enterprise to be an SME?,0.0,0.0,2110.1,2429.0,26,10.7,True,The relevant sources indicate that an enterprise is considered an SME if its annual turnover is not more than GBP 44 million.
+nemotron-3-nano:4b,What does loss given default (LGD) mean?,0.0,0.0,2385.2,2944.0,45,15.29,True,"The relevant sources indicate that LGD is the loss given default, which is the loss given default, as set out in paragraph 1 of Credit Risk: Internal Ratings Based Approach (CRR) Part Article 161."
+nemotron-3-nano:4b,What is a transactor exposure?,0.0,0.0,2273.5,2588.0,23,8.89,True,The relevant sources indicate that regulatory retail exposures that are transactor exposures shall be assigned a risk weight of 45%.
+nemotron-3-nano:4b,What is the Standardised Approach?,0.0,0.0,2005.1,2339.1,28,11.97,True,"The relevant sources indicate that the Standardised Approach comprises the Business Indicator, the Business Indicator Component, and the Internal Loss Multiplier."
+nemotron-3-nano:4b,What are the minimum PD floors for retail exposures?,0.0,0.0,2288.3,2989.6,55,18.4,True,"The relevant sources indicate that for qualifying revolving retail exposures, the PD floor is 0.1%; for retail exposures secured by residential immovable property, the PD floor is 0.1%; and for all other retail exposures, the PD floor is 0.05%."
+nemotron-3-nano:4b,What PD must be used for retail obligors in default?,0.0,0.0,1878.8,2191.9,23,10.49,True,The relevant sources indicate that an institution shall use a PD of 100% for retail obligors in default.
+nemotron-3-nano:4b,What risk weight can apply to an institutional exposure without an ECAI credit assessment?,0.0,0.0,2280.0,3371.5,82,24.32,True,"The relevant sources indicate that an exposure to an institution for which a credit assessment by a nominated ECAI is not available may be assigned a risk weight of 30% if the original maturity of the exposure was more than three months, the exposure is classified as Grade A, and the institution has a Common Equity Tier 1 ratio which meets or exceeds 14% and a leverage ratio which meets or exceeds 5%."
+nemotron-3-nano:4b,What does ACTP mean?,0.0,0.0,1189.6,1559.8,31,19.87,True,The relevant sources indicate that ACTP means the alternative correlation trading portfolio as determined in accordance with the Market Risk: General Provisions (CRR) Part.
+nemotron-3-nano:4b,What risk weight applies to a higher risk equity exposure?,0.0,0.0,1622.2,2183.0,44,20.16,True,"The relevant sources indicate that a higher risk equity exposure shall be assigned a risk weight of 400%, unless the exposure is within the scope of paragraph 6, in which case the treatment referred to in paragraph 6 applies."
+llama3.2:1b,What is the Basel 3.1 output floor percentage?,0.0,0.0,2245.3,2610.4,62,23.75,True,"The relevant sources indicate that the Basel 3.1 output floor percentage is not explicitly stated. The sources provide different percentages for different risk factors, such as market price uncertainty, close-out costs, and operational risk, but do not provide a single, unified percentage for the Basel 3.1 output floor."
+llama3.2:1b,What is a 'higher risk equity exposure'?,0.0,0.0,198.0,1021.4,138,135.11,True,"The relevant sources indicate that a ""higher risk equity exposure"" refers to an equity exposure that is not listed on a recognised exchange and to an undertaking whose business has existed for a period of less than five years, beginning with:
+
+(a) where the business was first established within the undertaking, the date the undertaking was first established; 
+(b) where the business was first established within a different undertaking (‘B’) and either:
+
+(i) the risk profile and nature of the business did not substantially change as a result of the transfer of the business to the undertaking; 
+(ii) the risk profile or nature of the business substantially changed as a result of the transfer of the business to the undertaking."
+llama3.2:1b,Which article sets out the Financial Collateral Comprehensive Method?,0.0,0.0,450.0,549.9,16,29.1,False,The article that sets out the Financial Collateral Comprehensive Method is Article 223.
+llama3.2:1b,What is the Financial Collateral Simple Method?,0.0,0.0,531.8,1102.7,89,80.71,True,"The relevant sources indicate that the Financial Collateral Simple Method (FCSM) is a method used by institutions to calculate exposure values and assign risk weights to collateralized exposures. It is one of the methods outlined in the Basel III regulations, which aim to improve the stability of the global financial system. The FCSM is described as a simple method that uses cash on deposit or debt securities issued by central governments or central banks as eligible collateral."
+llama3.2:1b,Which articles set out the Foundation Collateral Method?,0.0,0.0,551.6,2150.2,256,119.06,False,"The articles that set out the Foundation Collateral Method are:
+
+1. Article 229
+2. Article 230
+3. Article 231
+4. Article 232
+5. Article 233
+6. Article 236
+7. Article 237
+8. Article 238
+9. Article 239
+10. Article 240
+11. Article 241
+12. Article 242
+13. Article 243
+14. Article 244
+15. Article 245
+16. Article 246
+17. Article 247
+18. Article 248
+19. Article 249
+20. Article 250
+21. Article 251
+22. Article 252
+23. Article 253
+24. Article 254
+25. Article 255
+26. Article 256
+27. Article 257
+28. Article 258
+29. Article 259
+30. Article 260
+31. Article 261
+32. Article 262
+33. Article 263
+34. Article 264
+35. Article 265
+36. Article 266
+37. Article 267
+38. Article 268
+39. Article 269
+40. Article 270
+41. Article "
+llama3.2:1b,What is an IMA transitional permission?,0.0,0.0,434.3,750.5,53,70.62,True,"The relevant sources indicate that an IMA transitional permission is a permission granted to an institution by the PRA (Prudential Regulation Authority) to use an internal model approach for calculating its own funds requirement for market risk, as outlined in the Basel 3 regulations."
+llama3.2:1b,When does the IMA transitional period begin and end?,0.0,0.0,331.4,467.3,23,49.22,False,The IMA transitional period begins on 1 January 2027 and ends on 31 December 2027.
+llama3.2:1b,What is the turnover threshold for an enterprise to be an SME?,0.0,0.0,480.2,835.7,59,70.6,False,"The relevant sources do not provide a specific turnover threshold for an enterprise to be considered a Small and Medium-sized Enterprise (SME). The sources provide general information on the definition of SME, such as the annual turnover of not more than GBP 44 million, but do not specify a specific threshold."
+llama3.2:1b,What does loss given default (LGD) mean?,0.0,0.0,524.3,869.7,57,65.54,True,"The relevant sources indicate that loss given default (LGD) refers to the amount of loss that an institution would incur if it were to default on a loan or other obligation, given the defaulting institution's expected loss (EL) and the default rate (DR) of the loan."
+llama3.2:1b,What is a transactor exposure?,0.0,0.0,519.9,933.0,66,70.74,True,"The relevant sources indicate that a transactor exposure is an exposure that is the funding of the acquisition of physical assets (including ships, aircraft, satellites, railcars, and fleets) where the repayment of the exposure is dependent on the cash-flows generated by the specific assets that have been financed and pledged or assigned to the lender."
+llama3.2:1b,What is the Standardised Approach?,0.0,0.0,424.9,1067.5,104,97.42,True,"The relevant sources indicate that the Standardised Approach is a credit risk approach used by institutions to calculate risk-weighted exposure amounts and expected loss amounts. It is a standardized method that applies to a specific type of exposure, which is trading book positions, and is used in conjunction with other approaches, such as the Foundation IRB Approach. The Standardised Approach is not explicitly defined in the provided sources, but it is mentioned as a separate approach from the Foundation IRB Approach, which is used for a different type of exposure."
+llama3.2:1b,What are the minimum PD floors for retail exposures?,0.0,0.0,479.7,1278.5,128,100.12,True,"The relevant sources indicate that for retail exposures, the minimum PD floors are as follows:
+
+* For qualifying revolving retail exposures, the PD floor is 0.1% (source: Article 163, Paragraph 3)
+* For retail exposures secured by residential immovable property, the PD floor is 0.1% (source: Article 163, Paragraph 3)
+* For other retail exposures, the PD floor is 0.05% (source: Article 163, Paragraph 3)
+
+These floors are specified in the Basel 3.1 Final Rules Policy Statement, which is effective from 1 January 2027."
+llama3.2:1b,What PD must be used for retail obligors in default?,0.0,0.0,400.8,538.0,22,40.89,False,"The relevant source indicates that for retail obligors in default, an institution must use a PD of 100%."
+llama3.2:1b,What risk weight can apply to an institutional exposure without an ECAI credit assessment?,0.0,0.0,497.2,652.8,25,38.3,True,The relevant sources indicate that an institutional exposure without an ECAI credit assessment can be assigned a risk weight of 30%.
+llama3.2:1b,What does ACTP mean?,0.0,0.0,246.7,343.5,15,43.67,True,The relevant sources indicate that ACTP stands for Alternative Correlation Trading Portfolio.
+llama3.2:1b,What risk weight applies to a higher risk equity exposure?,0.0,0.0,353.8,476.6,20,41.96,True,The relevant sources indicate that a higher risk equity exposure shall be assigned a risk weight of 400%.
+granite4.2:3b,What is the Basel 3.1 output floor percentage?,3286.8,7356.6,3286.8,7356.6,184,25.01,True,"The relevant sources indicate that source 3 contains the formula 1−e−0.05∙Mi, which relates to a Basel 3.1 output floor calculation. This formula is presented in the context of the document effective from 1 January 2027, which is the Basel 3.1 policy statement. The formula suggests a transformation involving Mi and a decay factor, but it does not explicitly state a percentage value for the output floor.
+
+Source 4 discusses an operational risk AVA of 10% of the sum of aggregated category level AVAs, which is unrelated to the Basel 3.1 output floor percentage.
+
+Source 1 and source 2 do not provide a specific percentage for the output floor; they reference general template parts and document references without numeric output floor details.
+
+Therefore, the evidence is insufficient to determine the Basel 3.1 output floor percentage."
+granite4.2:3b,What is a 'higher risk equity exposure'?,0.0,0.0,881.1,7139.4,256,35.86,True,"The relevant sources indicate that a higher risk equity exposure is defined in source 1, which describes criteria including equity exposure not listed on a recognised exchange and related to an undertaking with limited business history. Source 2 provides risk weight details, referring to higher risk equity exposure having a risk weight of 400% unless within scope of paragraph 6. Source 5 lists instruments that may be categorised as equity exposures but does not define higher risk equity exposure. The definition in source 1 aligns with the description of higher risk equity exposure as outlined.
+
+The relevant sources indicate that a higher risk equity exposure means an equity exposure that is:  
+(1) not listed on a recognised exchange; and  
+(2) to an undertaking (‘A’) whose business has existed for a period of less than five years, beginning with:  
+(a) where the business was first established within A, the date A was first established; or  
+(b) where the business was first established within a different undertaking (‘B’) and either:  
+(i) the risk profile and nature of the business did not substantially change as a result of the transfer of the business to A, the date B was established; or  
+(ii) the"
+granite4.2:3b,Which article sets out the Financial Collateral Comprehensive Method?,0.0,0.0,1969.9,2676.6,24,8.97,True,"The relevant sources indicate that Article 223 is titled ""FINANCIAL COLLATERAL COMPREHENSIVE METHOD."""
+granite4.2:3b,What is the Financial Collateral Simple Method?,0.0,0.0,2322.1,10568.6,256,24.22,True,"The relevant sources indicate that the Financial Collateral Simple Method is defined in Credit Risk Mitigation (CRR) Part Article 222, as referenced in source 2. This source states: ""Financial Collateral Simple Method means the method set out in paragraphs 2 to 7 of Credit Risk Mitigation (CRR) Part Article 222 for calculating exposure values and assigning risk weights to collateralised exposures.""
+
+Thus, the Financial Collateral Simple Method is the method described in Article 222 of CRR, specifically the one set out in paragraphs 2 to 7 of that article.
+
+The evidence is sufficient to answer the question based on the provided sources.
+
+The relevant sources indicate that the Financial Collateral Simple Method is defined in Credit Risk Mitigation (CRR) Part Article 222, as referenced in source 2. This source states: ""Financial Collateral Simple Method means the method set out in paragraphs 2 to 7 of Credit Risk Mitigation (CRR) Part Article 222 for calculating exposure values and assigning risk weights to collateralised exposures.""
+
+Thus, the Financial Collateral Simple Method is the method described in Article 222 of CRR, specifically the one set out in paragraphs 2 to 7 of that"
+granite4.2:3b,Which articles set out the Foundation Collateral Method?,0.0,0.0,2400.0,10802.6,256,23.7,True,"The relevant sources indicate that the Foundation Collateral Method is set out in Article 229, Article 230, and Article 231.  
+The relevant sources indicate that the Foundation Collateral Method is set out in Article 229, Article 230, and Article 231.  
+The relevant sources indicate that the Foundation Collateral Method is set out in Article 229, Article 230, and Article 231.  
+The relevant sources indicate that the Foundation Collateral Method is set out in Article 229, Article 230, and Article 231.  
+The relevant sources indicate that the Foundation Collateral Method is set out in Article 229, Article 230, and Article 231.  
+The relevant sources indicate that the Foundation Collateral Method is set out in Article 229, Article 230, and Article 231.  
+The relevant sources indicate that the Foundation Collateral Method is set out in Article 229, Article 230, and Article 231.  
+The relevant sources indicate that the Foundation Collateral Method is set out in Article 229, Article 230, and Article 231.  
+The relevant sources indicate that the Foundation Collateral Method is set out in Article 229, Article 230, and Article"
+granite4.2:3b,What is an IMA transitional permission?,0.0,0.0,2042.2,9986.5,256,25.63,True,"The relevant sources indicate that an IMA transitional permission is a permission granted to an institution by the PRA pursuant to Article 363(1) of Part A of Annex 3 of the Market Risk: Internal Model Approach (CRR) Part. This is stated in source 5.
+
+The relevant sources indicate that an IMA transitional permission is a permission granted to an institution by the PRA pursuant to Article 363(1) of Part A of Annex 3 of the Market Risk: Internal Model Approach (CRR) Part. This is stated in source 5.
+
+The relevant sources indicate that an IMA transitional permission is a permission granted to an institution by the PRA pursuant to Article 363(1) of Part A of Annex 3 of the Market Risk: Internal Model Approach (CRR) Part. This is stated in source 5.
+
+The relevant sources indicate that an IMA transitional permission is a permission granted to an institution by the PRA pursuant to Article 363(1) of Part A of Annex 3 of the Market Risk: Internal Model Approach (CRR) Part. This is stated in source 5.
+
+The relevant sources indicate that an IMA transitional permission is a permission granted to an"
+granite4.2:3b,When does the IMA transitional period begin and end?,0.0,0.0,1503.7,7989.4,237,29.66,True,"The relevant sources indicate that the IMA transitional period is effective from 1 January 2027. Source 1 states that the document is effective from 1 January 2027 and accompanies PS1/26. Source 3B.1 also refers to the IMA transitional period as starting on the day after the end of the IMA transitional period, which aligns with the effective date in source 1. Source 4 and source 10 also reference the period effective from 1 January 2027. Therefore, the IMA transitional period begins on 1 January 2027. The end date is not explicitly stated in the provided sources, but the transitional period is defined as the period during which transitional provisions apply, and source 3B.1 mentions that during the IMA transitional period, certain requirements apply until the end of the period as described in the policy statement. Since the sources do not specify an exact end date beyond the effective period, the evidence is insufficient to determine the precise end date.
+
+The relevant sources indicate that the IMA transitional period begins on 1 January 2027. The evidence is insufficient to determine the exact end date."
+granite4.2:3b,What is the turnover threshold for an enterprise to be an SME?,0.0,0.0,2243.4,5813.6,114,19.61,True,"The relevant sources indicate that an SME is defined by an annual turnover of not more than GBP 44 million, calculated on the basis of the highest consolidated accounts of the group to which the enterprise belongs, according to the rules on accounting consolidation in the applicable jurisdiction. This definition is provided in source 1.
+
+The other sources do not contain information about a turnover threshold for SMEs.
+
+Therefore, the evidence is sufficient to answer the question.
+
+The relevant sources indicate that the turnover threshold for an enterprise to be an SME is GBP 44 million."
+granite4.2:3b,What does loss given default (LGD) mean?,0.0,0.0,2434.0,10991.6,255,23.2,True,"The relevant sources indicate that LGD stands for Loss Given Default, as defined in various articles and sources. For example, source 3 defines LGD input floor values and uses terms like LGD∗, LGDS, and LGDSi, all of which are related to loss given default. Source 9 also refers to LGD values in the context of LGD input floor values for corporates and institutions. These sources consistently use LGD to denote the proportion of an exposure that is lost given a default event.
+
+The relevant sources indicate that LGD is defined as the loss given default, as reflected in the terminology used throughout the sources.
+
+The relevant sources indicate that LGD is defined as the loss given default, as reflected in the terminology used throughout the sources.
+
+The relevant sources indicate that LGD is defined as the loss given default, as reflected in the terminology used throughout the sources.
+
+The relevant sources indicate that LGD is defined as the loss given default, as reflected in the terminology used throughout the sources.
+
+The relevant sources indicate that LGD is defined as the loss given default, as reflected in the terminology used throughout the sources.
+
+The relevant sources indicate that LGD is defined as the loss given default"
+granite4.2:3b,What is a transactor exposure?,0.0,0.0,2473.2,10917.2,256,23.45,True,"The relevant sources indicate that ""transactor exposures"" are defined within the context of retail exposures in source 2, which states:
+
+(a) regulatory retail exposures that are transactor exposures shall be assigned a risk weight of 45%;  
+(b) regulatory retail exposures that are not transactor exposures shall be assigned a risk weight of 75%; and  
+(c) all other retail exposures that do not qualify as regulatory retail exposures shall be assigned a risk weight of 100%.
+
+This source defines what constitutes a transactor exposure implicitly through its assignment of risk weights based on the classification of retail exposures.
+
+The evidence is sufficient to describe the classification but does not provide an explicit definition beyond the risk weight assignment.
+
+Therefore, based on the provided sources, a transactor exposure is a type of regulatory retail exposure that receives a 45% risk weight.
+
+The answer is not phrased as certainty but as evidence from the source.
+
+The relevant sources indicate that transactor exposures are regulatory retail exposures assigned a 45% risk weight.
+
+This is the only explicit reference to the term ""transactor exposure"" in the given sources.
+
+No other source defines ""transactor exposure"" explicitly.
+
+"
+granite4.2:3b,What is the Standardised Approach?,0.0,0.0,1963.8,9746.9,256,26.26,True,"The relevant sources indicate that the Standardised Approach is defined within the Standardised Approach documentation, including its components such as the Business Indicator, Business Indicator Component, and Internal Loss Multiplier, as described in source 2. The sources also reference the Standardised Approach in various annexes and sections, providing details on its application and calculation.
+
+The relevant sources indicate that the Standardised Approach comprises:  
+(1) the Business Indicator;  
+(2) the Business Indicator Component; and  
+(3) the Internal Loss Multiplier.  
+
+The relevant sources indicate that the Business Indicator is the sum of three components:  
+(1) the interest, leases and dividend component;  
+(2) the services component; and  
+(3) the financial component,  
+which are calculated according to the table in source 2.  
+
+The relevant sources indicate that the Standardised Approach is applicable under certain conditions, such as when an institution can demonstrate to the PRA that using the Standardised Approach meets specific criteria (e.g., not proposed to reduce own funds requirement, necessary due to nature and complexity of exposures, etc.), as outlined in source 5.  
+
+The relevant sources indicate that the Standardised Approach is permitted under"
+granite4.2:3b,What are the minimum PD floors for retail exposures?,0.0,0.0,2204.7,7142.8,159,22.26,True,"The relevant sources indicate that for retail exposures, PD values less than 0.1% are subject to specific floors depending on the type of exposure. Source 2 states that PD values less than the following thresholds apply:  
+(a) 0.1% for qualifying revolving retail exposures;  
+(b) 0.1% for retail exposures secured by residential immovable property;  
+(c) 0.05% for all other retail exposures.  
+
+Source 5 provides LGD input floor values but does not specify PD floors. Source 1 is incomplete and does not detail PD floors. Therefore, the minimum PD floors for retail exposures are as listed in source 2.  
+
+The evidence is sufficient to answer the question based on the provided sources."
+granite4.2:3b,What PD must be used for retail obligors in default?,0.0,0.0,1823.7,9338.8,256,27.41,True,"The relevant sources indicate that for retail exposures, an institution shall use a PD of 100% for obligors in default.
+
+This is directly stated in source 3, which defines when a default occurs and includes the condition that an institution may apply the definition of default at the level of an individual credit facility rather than the total obligations of an obligor. Additionally, source 4 explicitly states: ""An institution shall use a PD of 100% for obligors in default.""
+
+These sources provide the required PD value for retail obligors in default.
+
+The relevant sources indicate that for retail obligors in default, the PD must be 100%.
+
+This is supported by the explicit statement in source 4.
+
+The relevant sources indicate that for retail obligors in default, the PD must be 100%.
+
+This is supported by the explicit statement in source 4.
+
+The relevant sources indicate that for retail obligors in default, the PD must be 100%.
+
+This is supported by the explicit statement in source 4.
+
+The relevant sources indicate that for retail obligors in default, the PD must be 100%.
+
+This is supported by the explicit statement in source 4.
+
+"
+granite4.2:3b,What risk weight can apply to an institutional exposure without an ECAI credit assessment?,0.0,0.0,2310.0,10711.3,256,23.9,True,"The relevant sources indicate that when a credit assessment by a nominated ECAI is not available for an institutional exposure, the applicable risk weight depends on the specific context provided in the sources.
+
+Source 1 describes a rule for exposures where no issue-specific credit assessment is available from a nominated ECAI, stating that the institution shall use the higher of two risk weights: (i) the risk weight assigned under paragraphs 2 to 2B and 4, Article 138; and (ii) if an issue-specific credit assessment is available, the risk weight assigned using that assessment, disregarding point (g) of Article 138(1). This indicates that in such cases, a specific risk weight is determined based on those conditions.
+
+Source 2 states that for exposures to corporates assessed as not investment grade, a risk weight of 135% applies, but this is limited to exposures assessed as not investment grade and does not directly address the absence of an ECAI credit assessment for institutional exposures.
+
+Source 3 states that unless the institution has permission to apply a specific approach, exposures for which a credit assessment by a nominated ECAI is not available shall be assigned a 100% risk weight (point 3). This"
+granite4.2:3b,What does ACTP mean?,0.0,0.0,1083.1,1872.6,31,16.55,True,The relevant sources indicate that ACTP means the alternative correlation trading portfolio as determined in accordance with the Market Risk: General Provisions (CRR) Part.
+granite4.2:3b,What risk weight applies to a higher risk equity exposure?,0.0,0.0,1575.9,8877.8,256,28.84,True,"The relevant sources indicate that a higher risk equity exposure shall be assigned a risk weight of 400%, unless the exposure is within the scope of paragraph 6, in which case the treatment referred to in paragraph 6 applies.
+
+The relevant sources indicate that higher risk equity exposure means an equity exposure that is:  
+(1) not listed on a recognised exchange; and  
+(2) to an undertaking (‘A’) whose business has existed for a period of less than five years, beginning with:  
+(a) where the business was first established within A, the date A was first established; or  
+(b) where the business was first established within a different undertaking (‘B’) and either:  
+(i) the risk profile and nature of the business did not substantially change as a result of the transfer of the business to A, the date B was first established; or  
+(ii) the risk profile or nature of the business substantially changed as a result of the transfer of the business to A, the date the business was transferred to A.
+
+The relevant sources indicate that the risk weight for a higher risk equity exposure is 400%, as stated in source 1 paragraph 4.
+
+The relevant sources"
+gemma:2b,What is the Basel 3.1 output floor percentage?,0.0,0.0,2624.9,2840.0,26,9.15,False,"The passage does not specify the Basel 3.1 output floor percentage, so I cannot answer this question from the provided context."
+gemma:2b,What is a 'higher risk equity exposure'?,0.0,0.0,388.2,691.5,39,56.4,False,"According to the sources, a higher risk equity exposure is an equity exposure that is not listed on a recognised exchange and to an undertaking whose business has existed for a period of less than five years."
+gemma:2b,Which article sets out the Financial Collateral Comprehensive Method?,0.0,0.0,810.2,1002.5,24,23.94,False,"According to the passage, the Financial Collateral Comprehensive Method is set out in Article 223 of the CRR."
+gemma:2b,What is the Financial Collateral Simple Method?,0.0,0.0,1002.8,1492.8,63,42.2,False,"The Financial Collateral Simple Method is a method for calculating the risk-weighted exposure amount and expected loss amount of a financial collateral transaction. The Financial Collateral Simple Method is used when an institution is using the Financial Collateral Simple Method, the Financial Collateral Comprehensive Method, the Foundation Collateral Method, or the SFT VaR Method."
+gemma:2b,Which articles set out the Foundation Collateral Method?,0.0,0.0,947.2,1189.4,31,26.06,False,"According to the passage, the Foundation Collateral Method is set out in Credit Risk Mitigation (CRR) Part Articles 229 to 231."
+gemma:2b,What is an IMA transitional permission?,0.0,0.0,816.1,1132.6,41,36.2,False,An IMA transitional permission is a permission granted by the PRA pursuant to Article 363(1) of Part A of Annex 3 of the Market Risk: Internal Model Approach (CRR) Part.
+gemma:2b,When does the IMA transitional period begin and end?,0.0,0.0,617.7,856.7,32,37.35,True,The relevant sources indicate that the IMA transitional period begins on 1 January 2027 and ends on 31 December 2029.
+gemma:2b,What is the turnover threshold for an enterprise to be an SME?,0.0,0.0,932.5,1137.0,27,23.75,False,"The passage does not specify a turnover threshold for an enterprise to be an SME, so I cannot answer this question from the provided context."
+gemma:2b,What does loss given default (LGD) mean?,0.0,0.0,974.1,1239.7,34,27.43,False,"According to the passage, loss given default (LGD) means the loss given to an obligor or facility when an obligor or facility defaults on a debt instrument."
+gemma:2b,What is a transactor exposure?,0.0,0.0,996.2,1152.4,20,17.36,False,A transactor exposure is an exposure that is a loan granted by a credit institution to a borrower.
+gemma:2b,What is the Standardised Approach?,0.0,0.0,794.7,1253.1,59,47.08,False,"The Standardised Approach is a framework that allows institutions to calculate risk-weighted exposure amounts and expected loss amounts for exposures that are not covered by the Internal Loss Multiplier (ILM). The Standardised Approach comprises three components: the Business Indicator, the Business Indicator Component, and the Internal Loss Multiplier."
+gemma:2b,What are the minimum PD floors for retail exposures?,0.0,0.0,907.4,1112.0,26,23.38,False,"The minimum PD floors for retail exposures are not specified in the sources provided, so I cannot answer this question from the provided context."
+gemma:2b,What PD must be used for retail obligors in default?,0.0,0.0,732.7,880.5,19,21.58,False,"According to the sources, the PD for retail exposures must be set at 100%."
+gemma:2b,What risk weight can apply to an institutional exposure without an ECAI credit assessment?,0.0,0.0,942.7,1872.1,120,64.1,False,"According to the relevant sources, a risk weight can apply to an institutional exposure without an ECAI credit assessment in the following cases:
+
+- Exposures to central governments or central banks for which a credit assessment by a nominated ECAI is available.
+- Exposures to institutions owned by or sponsored by central governments, regional governments, or local authorities.
+- Exposures to third country institutions for which a credit assessment by a nominated ECAI is available.
+- Exposures to institutions for which the original maturity of the exposure was more than three months and the exposure arose from the movement of goods."
+gemma:2b,What does ACTP mean?,0.0,0.0,457.9,677.2,29,42.82,True,The relevant sources indicate that ACTP means the alternative correlation trading portfolio as determined in accordance with the Market Risk: General Provisions (CRR) Part.
+gemma:2b,What risk weight applies to a higher risk equity exposure?,0.0,0.0,685.1,859.4,22,25.6,False,"According to the sources, the risk weight that applies to a higher risk equity exposure is 400%."
+gemma4:12b,What is the Basel 3.1 output floor percentage?,10115.5,26265.5,10115.5,26265.5,85,3.24,True,"The relevant sources indicate that the output floor is specified in parts of templates OF 02.00 and OF 08.01 in accordance with instructions in points 1.3 and 3.3.3 of Part II Annex II [source 1]. The evidence provided includes several percentages (5%, 20%, 0%, 45%, 45%) [source 2]."
+gemma4:12b,What is a 'higher risk equity exposure'?,0.0,0.0,4528.6,38822.8,168,4.33,True,"The relevant sources indicate that a higher risk equity exposure is defined as an equity exposure that is:
+
+(1) not listed on a recognised exchange; and
+(2) to an undertaking (‘A’) whose business has existed for a period of less than five years, beginning with:
+(a) where the business was first established within A, the date A was first established;
+(b) where the business was first established within a different undertaking (‘B’) and either:
+(i) the risk profile and nature of the business did not substantially change as a result of the transfer of the business to A, the date B was first established; or
+(ii) the risk profile or nature of the business substantially changed as a result of the transfer of the business to A, the date the business was transferred to A."
+gemma4:12b,Which article sets out the Financial Collateral Comprehensive Method?,0.0,0.0,8788.5,14245.6,28,1.97,True,The relevant sources indicate that the Financial Collateral Comprehensive Method is set out in Credit Risk Mitigation (CRR) Part Article 223.
+gemma4:12b,What is the Financial Collateral Simple Method?,0.0,0.0,10053.3,20688.5,51,2.47,True,The relevant sources indicate that the Financial Collateral Simple Method is defined as the method set out in paragraphs 2 to 7 of Credit Risk Mitigation (CRR) Part Article 222 for calculating exposure values and assigning risk weights to collateralised exposures.
+gemma4:12b,Which articles set out the Foundation Collateral Method?,0.0,0.0,9959.3,21217.2,54,2.55,True,"The relevant sources indicate that the Foundation Collateral Method is set out in the following articles:
+
+*   Articles 229 to 231 (source 1)
+*   Articles 229 to 231 (source 6)"
+gemma4:12b,What is an IMA transitional permission?,0.0,0.0,8884.6,18871.9,51,2.7,True,The relevant sources indicate that an IMA transitional permission is defined as a permission granted to an institution by the PRA pursuant to Article 363(1) of Part A of Annex 3 of the Market Risk: Internal Model Approach (CRR) Part.
+gemma4:12b,When does the IMA transitional period begin and end?,0.0,0.0,6996.2,11682.6,23,1.97,True,The relevant sources indicate that the evidence is insufficient to determine the specific start and end dates of the IMA transitional period.
+gemma4:12b,What is the turnover threshold for an enterprise to be an SME?,0.0,0.0,9579.8,14865.2,27,1.82,True,The relevant sources indicate that an enterprise is considered an SME if it has an annual turnover of not more than GBP 44 million.
+gemma4:12b,What does loss given default (LGD) mean?,0.0,0.0,9840.5,64896.2,256,3.94,True,"The relevant sources indicate that the term ""loss given default"" (LGD) is associated with the following information:
+
+*   It is a component used in the calculation of risk-weighted exposure amounts, expected loss amounts, risk weights, and expected loss for various types of exposures, including those to corporates, institutions, and retail [source 3, source 6, source 7, source 9, source 10].
+*   LGD values are used as inputs to risk-weight and expected loss formulae [source 3, source 7, source 9].
+*   LGD is used in the calculation of the recovery rate for debt instruments, where the recovery rate is expressed as (1-LGD) [source 4].
+*   LGD estimates can be decomposed to determine the probability of default (PD) for certain types of assets, such as purchased corporate receivables [source 6, source 7].
+*   LGD values are subject to specific ""input floor"" values depending on the exposure type; for example, retail exposures may have different floor values based on whether they are secured by residential immovable property or are unsecured [source 3].
+*   LGD values for corporate and institutional exposures may be subject"
+gemma4:12b,What is a transactor exposure?,0.0,0.0,10370.5,14362.4,19,1.32,True,The relevant sources indicate that the evidence is insufficient to provide a definition for a transactor exposure.
+gemma4:12b,What is the Standardised Approach?,0.0,0.0,8926.4,67350.2,256,3.8,True,"The relevant sources indicate that the Standardised Approach is described in the following ways:
+
+*   It comprises the Business Indicator, the Business Indicator Component, and the Internal Loss Multiplier [source 2].
+*   The Business Indicator is the sum of three components: the interest, leases and dividend component; the services component; and the financial component [source 2].
+*   It is used in the calculation of risk-weighted exposure amounts and, where applicable, expected loss amounts when an institution takes into account credit risk mitigation techniques [source 3].
+*   It is used for the calculation of risk-weighted exposure amounts if an institution can demonstrate to the satisfaction of the PRA that its use is not intended to reduce own funds requirements, is necessary based on the nature and complexity of the institution's exposures, would not have a material adverse impact on solvency or risk management, and meets specific criteria regarding its application to all exposures or specific roll-out classes [source 5].
+*   It is used for certain types of assets, such as equity [source 12].
+*   It is used for certain types of exposures, such as those to a counterparty that is a parent undertaking, subsidiary, or related entity under specific conditions, or"
+gemma4:12b,What are the minimum PD floors for retail exposures?,0.0,0.0,9560.3,31515.2,103,3.27,True,"The relevant sources indicate that for retail exposures, an institution shall not use PD values in the input of the risk weights and expected loss formulae that are less than the following:
+
+*   0.1% for qualifying revolving retail exposures, as set out in Article 147(5A), that are non-transactor exposures;
+*   0.1% for retail exposures secured by residential immovable property located in the UK; and
+*   0.05% for all other retail exposures."
+gemma4:12b,What PD must be used for retail obligors in default?,0.0,0.0,8025.3,21145.8,62,2.93,True,"The relevant sources indicate that for retail exposures, an institution shall use a PD of 100% for obligors in default. Additionally, where the institution applies the definition of default at the level of an individual credit facility, a PD of 100% shall be used for exposures in default."
+gemma4:12b,What risk weight can apply to an institutional exposure without an ECAI credit assessment?,0.0,0.0,9869.6,67616.7,256,3.79,True,"The relevant sources indicate that for an institutional exposure where a credit assessment by a nominated ECAI is not available, the following risk weights may apply depending on specific conditions:
+
+*   **General Risk Weights:** Unless an institution has permission to apply a specific approach, such exposures may be assigned a risk weight of 100% [source 3].
+*   **Specific Conditions for 30% Risk Weight:** An exposure may be assigned a risk weight of 30% if the original maturity was more than three months, the exposure is classified as Grade A, and the institution meets specific Common Equity Tier 1 (at least 14%) and leverage ratio (at least 5%) requirements [source 5].
+*   **Minimum Risk Weight Constraints:** The risk weight may not be less than the risk weight applicable to exposures to the central government of the jurisdiction where the institution is incorporated if the exposure is not in the local currency or is not a self-liquidating, trade-related contingent item with an original maturity of less than one year [source 5].
+*   **Maturity and Trade-Related Specifics:**
+    *   Exposures with an original maturity of more than three months may be assigned a risk weight"
+gemma4:12b,What does ACTP mean?,0.0,0.0,6877.8,12476.5,29,2.32,True,The relevant sources indicate that ACTP means the alternative correlation trading portfolio as determined in accordance with the Market Risk: General Provisions (CRR) Part.
+gemma4:12b,What risk weight applies to a higher risk equity exposure?,0.0,0.0,7632.0,17447.2,47,2.69,True,"The relevant sources indicate that a higher risk equity exposure shall be assigned a risk weight of 400%, unless the exposure is within the scope of paragraph 6, in which case the treatment referred to in paragraph 6 applies."

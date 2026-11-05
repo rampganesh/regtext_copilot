@@ -10,5 +10,6 @@ corpus/
 .kilocode/
 .env
 .env.example
+backend/logs/
 
 

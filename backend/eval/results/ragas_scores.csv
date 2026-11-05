@@ -1,0 +1,2 @@
+model,question,faithfulness,answer_correctness,answer_relevancy
+phi3:3.8b,What is the Basel 3.1 output floor percentage?,0.3333,0.4762,0.9289

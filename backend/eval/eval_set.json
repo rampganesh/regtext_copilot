@@ -1,0 +1,66 @@
+[
+  {
+    "question": "What is the Basel 3.1 output floor percentage?",
+    "reference": "The output floor is 72.5%."
+  },
+  {
+    "question": "What is a 'higher risk equity exposure'?",
+    "reference": "An equity exposure that is not listed on a recognised exchange and is to an undertaking whose business has existed for less than five years."
+  },
+  {
+    "question": "Which article sets out the Financial Collateral Comprehensive Method?",
+    "reference": "Credit Risk Mitigation (CRR) Part Article 223."
+  },
+  {
+    "question": "What is the Financial Collateral Simple Method?",
+    "reference": "The method set out in paragraphs 2 to 7 of Credit Risk Mitigation (CRR) Part Article 222 for calculating exposure values and assigning risk weights to collateralised exposures."
+  },
+  {
+    "question": "Which articles set out the Foundation Collateral Method?",
+    "reference": "Credit Risk Mitigation (CRR) Part Articles 229 to 231."
+  },
+  {
+    "question": "What is an IMA transitional permission?",
+    "reference": "A permission granted to an institution by the PRA under Article 363(1) of Part A of Annex 3 of the Market Risk: Internal Model Approach (CRR) Part."
+  },
+  {
+    "question": "When does the IMA transitional period begin and end?",
+    "reference": "From 1 January 2027 to 31 December 2027."
+  },
+  {
+    "question": "What is the turnover threshold for an enterprise to be an SME?",
+    "reference": "An annual turnover of not more than GBP 44 million."
+  },
+  {
+    "question": "What does loss given default (LGD) mean?",
+    "reference": "The expected ratio of the loss on an exposure due to the default of an obligor or facility to the amount outstanding at default."
+  },
+  {
+    "question": "What is a transactor exposure?",
+    "reference": "An exposure to an obligor under revolving facilities repaid in full at each scheduled repayment date for the previous 12 months, or an overdraft not drawn down over the previous 12 months."
+  },
+  {
+    "question": "What is the Standardised Approach?",
+    "reference": "The approach set out in the Credit Risk: Standardised Approach (CRR) Part."
+  },
+  {
+    "question": "What are the minimum PD floors for retail exposures?",
+    "reference": "0.1% for qualifying revolving retail exposures that are non-transactor, 0.1% for retail exposures secured by UK residential immovable property, and 0.05% for all other retail exposures."
+  },
+  {
+    "question": "What PD must be used for retail obligors in default?",
+    "reference": "A PD of 100%."
+  },
+  {
+    "question": "What risk weight can apply to an institutional exposure without an ECAI credit assessment?",
+    "reference": "30% where the original maturity is more than three months, the exposure is Grade A, and the institution has a Common Equity Tier 1 ratio of at least 14% and a leverage ratio of at least 5%."
+  },
+  {
+    "question": "What does ACTP mean?",
+    "reference": "The alternative correlation trading portfolio, determined in accordance with the Market Risk: General Provisions (CRR) Part."
+  },
+  {
+    "question": "What risk weight applies to a higher risk equity exposure?",
+    "reference": "A higher risk equity exposure is assigned a risk weight of 400%."
+  }
+]
